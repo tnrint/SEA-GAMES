@@ -8,23 +8,11 @@
 
 config_version=5
 
-<<<<<<< HEAD
-[animation]
-
-compatibility/default_parent_skeleton_in_mesh_instance_3d=true
-
 [application]
 
 config/name="SEA GAMES"
-run/main_scene="uid://by7qh7xk4mlmw"
-config/features=PackedStringArray("4.6", "Forward Plus")
-=======
-[application]
-
-config/name="SEA GAMES"
-run/main_scene="uid://by7qh7xk4mlmw"
+run/main_scene="uid://cioo4nvhsj56q"
 config/features=PackedStringArray("4.5", "Forward Plus")
->>>>>>> 22fa6c247105847019c9862fdf34f69ad52b6b5a
 config/icon="res://icon.svg"
 
 [display]

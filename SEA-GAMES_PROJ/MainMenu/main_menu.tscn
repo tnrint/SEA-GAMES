@@ -1,0 +1,131 @@
+[gd_scene load_steps=13 format=3 uid="uid://cioo4nvhsj56q"]
+
+[ext_resource type="Texture2D" uid="uid://bqotltl2ux4bc" path="res://Assets/beach bckgrnd.jpg" id="1_nhkf3"]
+[ext_resource type="Script" uid="uid://blifhby5kb77m" path="res://MainMenu/main_menu.gd" id="1_po2gx"]
+[ext_resource type="FontFile" uid="uid://cpwxixdj8xhmk" path="res://Assets/Font/Bungee-Regular.ttf" id="2_5de1l"]
+[ext_resource type="Texture2D" uid="uid://c5i1l12eni33g" path="res://Assets/UI_Wood_Fonts/Default.png" id="3_ajn5b"]
+[ext_resource type="Texture2D" uid="uid://ca6426vr1dl00" path="res://Assets/UI_Wood_Fonts/HoverPress.png" id="4_ajn5b"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_po2gx"]
+texture = ExtResource("3_ajn5b")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5de1l"]
+texture = ExtResource("4_ajn5b")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ajn5b"]
+texture = ExtResource("4_ajn5b")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kbpwf"]
+texture = ExtResource("4_ajn5b")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jdgnk"]
+texture = ExtResource("4_ajn5b")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r0x8f"]
+texture = ExtResource("4_ajn5b")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_83n0s"]
+texture = ExtResource("4_ajn5b")
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_po2gx")
+
+[node name="BeachBckgrnd" type="Sprite2D" parent="."]
+position = Vector2(302, 235.99998)
+scale = Vector2(0.68696445, 0.6869643)
+texture = ExtResource("1_nhkf3")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -146.0
+offset_right = 146.0
+offset_bottom = 66.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.20990819, 0.2631703, 0.73276174, 1)
+theme_override_fonts/font = ExtResource("2_5de1l")
+theme_override_font_sizes/font_size = 50
+text = "SEA GAMES"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -137.75
+offset_top = -108.950836
+offset_right = 137.75
+offset_bottom = 108.950836
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Play" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 2
+theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_5de1l")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_po2gx")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_5de1l")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ajn5b")
+text = "PLAY"
+
+[node name="Quick Play" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 2
+theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_5de1l")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_po2gx")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_5de1l")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ajn5b")
+text = "QUICK PLAY"
+
+[node name="Options" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 2
+theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_5de1l")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_po2gx")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_kbpwf")
+theme_override_styles/hover = SubResource("StyleBoxTexture_jdgnk")
+text = "OPTION"
+
+[node name="Exit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 2
+theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_5de1l")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_po2gx")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_r0x8f")
+theme_override_styles/hover = SubResource("StyleBoxTexture_83n0s")
+text = "EXIT
+"
+
+[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]
