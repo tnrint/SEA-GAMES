@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=4 uid="uid://by7qh7xk4mlmw"]
+[gd_scene load_steps=6 format=4 uid="uid://by7qh7xk4mlmw"]
 
 [ext_resource type="TileSet" uid="uid://b4233cuotsuf8" path="res://Tilemaps/TilseSet1.tres" id="1_fj6oa"]
 [ext_resource type="Script" uid="uid://vbdccqvsbu8o" path="res://Maps/area_1_1.gd" id="1_tm7g4"]
+[ext_resource type="PackedScene" uid="uid://bciiqffged2lm" path="res://Character sprites-tracking/sunny.tscn" id="3_du7c5"]
+[ext_resource type="PackedScene" uid="uid://bbg26vj7ocs0j" path="res://Character sprites-tracking/adrien.tscn" id="4_k7al6"]
 
 [sub_resource type="Curve2D" id="Curve2D_fj6oa"]
 _data = {
@@ -39,3 +41,9 @@ tile_set = ExtResource("1_fj6oa")
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_fj6oa")
+
+[node name="Tower" parent="." instance=ExtResource("3_du7c5")]
+position = Vector2(212, 88)
+
+[node name="Tower2" parent="." instance=ExtResource("4_k7al6")]
+position = Vector2(472, 266)
