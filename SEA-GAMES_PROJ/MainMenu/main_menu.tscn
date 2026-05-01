@@ -97,6 +97,20 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_5de1l")
 theme_override_styles/hover = SubResource("StyleBoxTexture_ajn5b")
 text = "QUICK PLAY"
 
+[node name="Load" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 2
+theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_5de1l")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_po2gx")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_5de1l")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ajn5b")
+text = "LOAD"
+
 [node name="Options" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 5
