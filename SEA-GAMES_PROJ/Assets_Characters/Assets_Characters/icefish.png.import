@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://btq6puk1mu7xy"
-path="res://.godot/imported/icefish.png-31f0ab81e9da1827942a42c2e88a96fa.ctex"
+path="res://.godot/imported/icefish.png-9e469de82ec634e8a8b0365daabaa0d5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets_Characters/icefish.png"
-dest_files=["res://.godot/imported/icefish.png-31f0ab81e9da1827942a42c2e88a96fa.ctex"]
+source_file="res://Assets_Characters/Assets_Characters/icefish.png"
+dest_files=["res://.godot/imported/icefish.png-9e469de82ec634e8a8b0365daabaa0d5.ctex"]
 
 [params]
 

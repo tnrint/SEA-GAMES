@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://bciiqffged2lm"]
 
 [ext_resource type="Texture2D" uid="uid://cf0w8w328q0at" path="res://Assets/High Tides - Basic Pack/Characters/Sunny.png" id="1_cayty"]
-[ext_resource type="Script" uid="uid://bfiy2x41k6d7u" path="res://sunny.gd" id="1_d1jki"]
+[ext_resource type="Script" uid="uid://bfiy2x41k6d7u" path="res://Character sprites-tracking/sunny.gd" id="1_d1jki"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d1jki"]
-radius = 150.0
+radius = 21.377558
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ptd1i"]
 atlas = ExtResource("1_cayty")

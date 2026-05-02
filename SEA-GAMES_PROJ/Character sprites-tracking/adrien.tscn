@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://bbg26vj7ocs0j"]
 
 [ext_resource type="Texture2D" uid="uid://dui286qbgohu8" path="res://Assets/High Tides - Basic Pack/Characters/Adrien.png" id="1_1jlms"]
-[ext_resource type="Script" uid="uid://csnkr451hprgu" path="res://adrien.gd" id="1_ce2jb"]
+[ext_resource type="Script" uid="uid://csnkr451hprgu" path="res://Character sprites-tracking/adrien.gd" id="1_ce2jb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s6x1k"]
-radius = 150.0
+radius = 71.02816
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ce2jb"]
 atlas = ExtResource("1_1jlms")

@@ -2,6 +2,7 @@ extends Node2D
 
 @export var trash_scene: PackedScene
 @export var bottle_scene: PackedScene
+@export var trashbag_scene: PackedScene
 
 @export var base_spawn_delay: float = 2.0
 @export var min_spawn_delay: float = 0.4
@@ -44,16 +45,20 @@ func spawn_enemy():
 	var enemy
 	var path = get_parent().get_node("Path2D")
 
-	# harder waves = more bottles (faster enemies)
-	if randi() % max(2, 5 - current_wave) == 0:
-		enemy = bottle_scene.instantiate()
-	else:
-		enemy = trash_scene.instantiate()
+	# Randomly pick between bottle, tier1 trash, or tier2 trash
+	var roll = randi() % 3
+	match roll:
+		0:
+			enemy = bottle_scene.instantiate()
+		1:
+			enemy = trashbag_scene.instantiate()
+			enemy.max_hp = 30   # starts as tier1 visually
+		2:
+			enemy = trashbag_scene.instantiate()
+			enemy.max_hp = 60   # starts as tier2, transforms at 30 HP
 
 	var new_path_follow = PathFollow2D.new()
 	new_path_follow.progress = 0
-
 	path.add_child(new_path_follow)
 	new_path_follow.add_child(enemy)
-
 	enemy.setup(new_path_follow)

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dqhec54njutyn"
-path="res://.godot/imported/shark_attack.png-502ad3f5fc6457157ae7ef55f10cc8cd.ctex"
+path="res://.godot/imported/shark_attack.png-4c3c22bcbaa22d633ede49ab4dbe5a96.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets_Characters/shark_attack.png"
-dest_files=["res://.godot/imported/shark_attack.png-502ad3f5fc6457157ae7ef55f10cc8cd.ctex"]
+source_file="res://Assets_Characters/Assets_Characters/shark_attack.png"
+dest_files=["res://.godot/imported/shark_attack.png-4c3c22bcbaa22d633ede49ab4dbe5a96.ctex"]
 
 [params]
 

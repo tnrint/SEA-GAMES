@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://dso1vk5wiyu33"]
+
+[ext_resource type="Texture2D" uid="uid://bc0lepu74t8vu" path="res://Assets_Characters/Assets_Characters/attack_fish.png" id="1_exai7"]
+[ext_resource type="Script" uid="uid://q1ecumr4moct" path="res://Character sprites-tracking/bubble_shoot.gd" id="1_wy6rc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wy6rc"]
+radius = 12.0415945
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5biki"]
+atlas = ExtResource("1_exai7")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dabse"]
+atlas = ExtResource("1_exai7")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vuw6q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5biki")
+}],
+"loop": true,
+"name": &"bubble",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dabse")
+}],
+"loop": true,
+"name": &"pop",
+"speed": 5.0
+}]
+
+[node name="Bubble" type="Area2D" unique_id=13502214]
+script = ExtResource("1_wy6rc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1608821705]
+shape = SubResource("CircleShape2D_wy6rc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1369621074]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_vuw6q")
+animation = &"pop"

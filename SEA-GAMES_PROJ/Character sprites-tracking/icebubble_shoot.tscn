@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://citu37ty7a6oo"]
+
+[ext_resource type="Texture2D" uid="uid://b5mg7y7i17xil" path="res://Assets_Characters/Assets_Characters/attack_icefish.png" id="1_m47ru"]
+[ext_resource type="Script" uid="uid://5wv65on58sn1" path="res://Character sprites-tracking/icebubble_shoot.gd" id="1_mnk7x"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mnk7x"]
+radius = 6.519202
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tvrxk"]
+atlas = ExtResource("1_m47ru")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u0lqd"]
+atlas = ExtResource("1_m47ru")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cdn17"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tvrxk")
+}],
+"loop": true,
+"name": &"icebubble",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u0lqd")
+}],
+"loop": true,
+"name": &"icepop",
+"speed": 5.0
+}]
+
+[node name="Area2D" type="Area2D" unique_id=1401017778]
+script = ExtResource("1_mnk7x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=853360966]
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_mnk7x")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1482857208]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_cdn17")
+animation = &"icebubble"

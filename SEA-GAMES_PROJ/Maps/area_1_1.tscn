@@ -1,12 +1,15 @@
 [gd_scene format=4 uid="uid://by7qh7xk4mlmw"]
 
 [ext_resource type="TileSet" uid="uid://b4233cuotsuf8" path="res://Tilemaps/TilseSet1.tres" id="1_fj6oa"]
-[ext_resource type="Script" uid="uid://vbdccqvsbu8o" path="res://Maps/area_1_1.gd" id="1_tm7g4"]
+[ext_resource type="Script" path="res://Maps/area_1_1.gd" id="1_tm7g4"]
 [ext_resource type="PackedScene" uid="uid://bciiqffged2lm" path="res://Character sprites-tracking/sunny.tscn" id="3_du7c5"]
 [ext_resource type="PackedScene" uid="uid://bbg26vj7ocs0j" path="res://Character sprites-tracking/adrien.tscn" id="4_k7al6"]
 [ext_resource type="Script" uid="uid://d0r1wmgeopvtm" path="res://Maps/enemy_spawner.gd" id="5_k7al6"]
 [ext_resource type="PackedScene" uid="uid://b6u81u1lok7u8" path="res://Enemies/trash_1.tscn" id="6_nugod"]
 [ext_resource type="PackedScene" uid="uid://3oy24w6arr74" path="res://Enemies/bottle_trash.tscn" id="7_o3cye"]
+[ext_resource type="PackedScene" uid="uid://2yi5r660vmi3" path="res://Character sprites-tracking/fishy.tscn" id="8_o3cye"]
+[ext_resource type="PackedScene" uid="uid://cfhq4j3knotv" path="res://Enemies/trashbag_trash.tscn" id="8_w637m"]
+[ext_resource type="PackedScene" uid="uid://mdrpx77gvyxs" path="res://Character sprites-tracking/ice_fishy.tscn" id="9_4nwt8"]
 
 [sub_resource type="Curve2D" id="Curve2D_fj6oa"]
 _data = {
@@ -55,3 +58,10 @@ position = Vector2(472, 266)
 script = ExtResource("5_k7al6")
 trash_scene = ExtResource("6_nugod")
 bottle_scene = ExtResource("7_o3cye")
+trashbag_scene = ExtResource("8_w637m")
+
+[node name="Tower3" parent="." unique_id=2121608849 instance=ExtResource("8_o3cye")]
+position = Vector2(317, 168)
+
+[node name="Tower4" parent="." unique_id=800732504 instance=ExtResource("9_4nwt8")]
+position = Vector2(342, 168)
