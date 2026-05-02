@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://b4233cuotsuf8"]
+[gd_resource type="TileSet" format=3 uid="uid://b4233cuotsuf8"]
 
 [ext_resource type="Texture2D" uid="uid://dfialskh4l214" path="res://Assets/AxulArt's Beach-and-caves-tileset_by_AxulArt/Beach-and-caves-tileset_ALL_by_AxulArt.png" id="1_vkwvu"]
 

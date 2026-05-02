@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6u81u1lok7u8"]
+[gd_scene format=3 uid="uid://b6u81u1lok7u8"]
 
 [ext_resource type="Script" uid="uid://c7yhjmjjjk61s" path="res://Enemies/trash_1.gd" id="1_ec0lh"]
 [ext_resource type="Texture2D" uid="uid://hrlcfu0devf0" path="res://Assets/trash assets/box 1 dynamic.png" id="1_malup"]
@@ -6,12 +6,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ec0lh"]
 size = Vector2(27, 20)
 
-[node name="Trash1" type="Area2D"]
+[node name="Trash1" type="Area2D" unique_id=205130187]
 script = ExtResource("1_ec0lh")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=352186863]
 texture = ExtResource("1_malup")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=232658496]
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_ec0lh")
