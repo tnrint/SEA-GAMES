@@ -1,0 +1,90 @@
+[gd_scene load_steps=12 format=3 uid="uid://bg0urh1br4jm6"]
+
+[ext_resource type="Texture2D" uid="uid://bqotltl2ux4bc" path="res://Assets/beach bckgrnd.jpg" id="1_0exs6"]
+[ext_resource type="Script" uid="uid://cx3kx2btvuitt" path="res://MainMenu/load_menu.gd" id="1_c6i0p"]
+[ext_resource type="FontFile" uid="uid://cpwxixdj8xhmk" path="res://Assets/Font/Bungee-Regular.ttf" id="2_c6i0p"]
+[ext_resource type="Texture2D" uid="uid://c5i1l12eni33g" path="res://Assets/UI_Wood_Fonts/Default.png" id="4_nmkvf"]
+[ext_resource type="Texture2D" uid="uid://ca6426vr1dl00" path="res://Assets/UI_Wood_Fonts/HoverPress.png" id="5_prce7"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uxrb3"]
+texture = ExtResource("4_nmkvf")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ygb34"]
+texture = ExtResource("5_prce7")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cd8ma"]
+texture = ExtResource("5_prce7")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nmkvf"]
+texture = ExtResource("4_nmkvf")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_prce7"]
+texture = ExtResource("5_prce7")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kpg2r"]
+texture = ExtResource("5_prce7")
+
+[node name="LoadMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c6i0p")
+
+[node name="BeachBckgrnd" type="Sprite2D" parent="."]
+position = Vector2(302, 235.99998)
+scale = Vector2(0.68696445, 0.6869643)
+texture = ExtResource("1_0exs6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.0
+offset_top = -72.0
+offset_right = 20.0
+offset_bottom = 31.274994
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SelectProfile" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_c6i0p")
+theme_override_font_sizes/font_size = 30
+text = "SELECT PROFILE"
+
+[node name="ProfileNameInput" type="LineEdit" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="CreateProfile" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_c6i0p")
+theme_override_styles/normal = SubResource("StyleBoxTexture_uxrb3")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ygb34")
+theme_override_styles/hover = SubResource("StyleBoxTexture_cd8ma")
+text = "CREATE PROFILE"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_vertical = 3
+follow_focus = true
+
+[node name="Users" type="VBoxContainer" parent="VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="Back" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_nmkvf")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_prce7")
+theme_override_styles/hover = SubResource("StyleBoxTexture_kpg2r")
+text = "BACK"
+
+[connection signal="pressed" from="VBoxContainer/Back" to="." method="_on_back_pressed"]

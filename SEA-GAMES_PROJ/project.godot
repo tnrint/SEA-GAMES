@@ -19,6 +19,10 @@ run/main_scene="uid://cioo4nvhsj56q"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+SaveManager="*res://SaveStates/SaveManager.gd"
+
 [display]
 
 window/size/viewport_width=640
