@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://k0ugkgjword7"
-path="res://.godot/imported/fish.png-96e18be9f074fba68b3db8337abcbc8d.ctex"
+uid="uid://dop6775i21eds"
+path="res://.godot/imported/Boss_Map1.png-9fcf7dd0cb042faf83b618a103900431.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets_Characters/Assets_Characters/fish.png"
-dest_files=["res://.godot/imported/fish.png-96e18be9f074fba68b3db8337abcbc8d.ctex"]
+source_file="res://Assets_Enemy/Boss_Map1.png"
+dest_files=["res://.godot/imported/Boss_Map1.png-9fcf7dd0cb042faf83b618a103900431.ctex"]
 
 [params]
 
