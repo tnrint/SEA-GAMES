@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://21k45hwtmnni"]
+
+[ext_resource type="Script" uid="uid://br8alpy84l8kx" path="res://Character sprites-tracking/shark_projectile.gd" id="1_hmuxg"]
+[ext_resource type="Texture2D" uid="uid://dqhec54njutyn" path="res://Assets_Characters/Assets_Characters/shark_attack.png" id="2_l3weu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hmuxg"]
+radius = 11.661903
+
+[node name="SharkProjectile" type="Area2D" unique_id=1052379609]
+script = ExtResource("1_hmuxg")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1116698511]
+position = Vector2(-1.0000014, 3.0000005)
+scale = Vector2(0.6085, 0.625)
+texture = ExtResource("2_l3weu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=610877444]
+position = Vector2(-1, 4)
+shape = SubResource("CircleShape2D_hmuxg")

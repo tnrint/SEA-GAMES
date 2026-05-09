@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://by7qh7xk4mlmw"]
 
 [ext_resource type="TileSet" uid="uid://b4233cuotsuf8" path="res://Tilemaps/TilseSet1.tres" id="1_fj6oa"]
-[ext_resource type="Script" path="res://Maps/area_1_1.gd" id="1_tm7g4"]
+[ext_resource type="Script" uid="uid://vbdccqvsbu8o" path="res://Maps/area_1_1.gd" id="1_tm7g4"]
 [ext_resource type="PackedScene" uid="uid://bciiqffged2lm" path="res://Character sprites-tracking/sunny.tscn" id="3_du7c5"]
 [ext_resource type="PackedScene" uid="uid://bbg26vj7ocs0j" path="res://Character sprites-tracking/adrien.tscn" id="4_k7al6"]
 [ext_resource type="Script" uid="uid://d0r1wmgeopvtm" path="res://Maps/enemy_spawner.gd" id="5_k7al6"]
@@ -10,6 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://2yi5r660vmi3" path="res://Character sprites-tracking/fishy.tscn" id="8_o3cye"]
 [ext_resource type="PackedScene" uid="uid://cfhq4j3knotv" path="res://Enemies/trashbag_trash.tscn" id="8_w637m"]
 [ext_resource type="PackedScene" uid="uid://mdrpx77gvyxs" path="res://Character sprites-tracking/ice_fishy.tscn" id="9_4nwt8"]
+[ext_resource type="PackedScene" uid="uid://b8ijmtt1svbjy" path="res://Character sprites-tracking/Sharky.tscn" id="11_4i10v"]
+[ext_resource type="PackedScene" uid="uid://boa2xnc4ouvdn" path="res://Character sprites-tracking/Swordfish.tscn" id="12_fsqkf"]
+[ext_resource type="PackedScene" uid="uid://bfie3o8k48do1" path="res://Character sprites-tracking/sawshark.tscn" id="13_p4v8e"]
+[ext_resource type="PackedScene" uid="uid://d18n2np1mrln" path="res://Character sprites-tracking/jellyfish.tscn" id="14_psn0c"]
 
 [sub_resource type="Curve2D" id="Curve2D_fj6oa"]
 _data = {
@@ -49,19 +53,33 @@ tile_set = ExtResource("1_fj6oa")
 curve = SubResource("Curve2D_fj6oa")
 
 [node name="Tower" parent="." unique_id=734962037 instance=ExtResource("3_du7c5")]
-position = Vector2(212, 88)
+position = Vector2(205, 85)
 
 [node name="Tower2" parent="." unique_id=2138814630 instance=ExtResource("4_k7al6")]
 position = Vector2(472, 266)
 
 [node name="EnemySpawner" type="Node2D" parent="." unique_id=31327674]
+position = Vector2(32, 57)
 script = ExtResource("5_k7al6")
-trash_scene = ExtResource("6_nugod")
 bottle_scene = ExtResource("7_o3cye")
+trash_scene = ExtResource("6_nugod")
 trashbag_scene = ExtResource("8_w637m")
 
 [node name="Tower3" parent="." unique_id=2121608849 instance=ExtResource("8_o3cye")]
-position = Vector2(317, 168)
+position = Vector2(281, 294)
 
 [node name="Tower4" parent="." unique_id=800732504 instance=ExtResource("9_4nwt8")]
-position = Vector2(342, 168)
+position = Vector2(236, 298)
+
+[node name="Tower5" parent="." unique_id=1750502069 instance=ExtResource("11_4i10v")]
+position = Vector2(185, 171)
+
+[node name="Tower6" parent="." unique_id=946436573 instance=ExtResource("12_fsqkf")]
+position = Vector2(54, 285)
+damage_amount = 30
+
+[node name="Sawshark" parent="." unique_id=747321526 instance=ExtResource("13_p4v8e")]
+position = Vector2(341, 299)
+
+[node name="Jellyfish" parent="." unique_id=45618479 instance=ExtResource("14_psn0c")]
+position = Vector2(341, 102)
