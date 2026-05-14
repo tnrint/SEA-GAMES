@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://dknfgt72qgxam"]
+
+[ext_resource type="Script" uid="uid://5kyejpt78uve" path="res://UI/character_card.gd" id="1_fnx8l"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_mdlon"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0qrxy"]
+texture = SubResource("CanvasTexture_mdlon")
+modulate_color = Color(0.16470589, 0.59607846, 0.13725491, 1)
+
+[node name="CharacterCard" type="Button" unique_id=1953580854]
+custom_minimum_size = Vector2(20, 30)
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_0qrxy")
+script = ExtResource("1_fnx8l")
+
+[node name="Icon" type="TextureRect" parent="." unique_id=749270547]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="PointCostLabel" type="Label" parent="." unique_id=1879561131]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -5.0
+offset_top = -23.0
+offset_right = 5.0
+grow_horizontal = 2
+grow_vertical = 0

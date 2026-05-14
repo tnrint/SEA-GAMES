@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" format=3 uid="uid://dkri2eo14r1ha"]
+
+[ext_resource type="Texture2D" uid="uid://btq6puk1mu7xy" path="res://Assets_Characters/Assets_Characters/icefish.png" id="1_a7ocv"]
+
+[resource]
+atlas = ExtResource("1_a7ocv")
+region = Rect2(0, 0, 16, 16)

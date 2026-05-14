@@ -2,6 +2,7 @@
 
 [ext_resource type="TileSet" uid="uid://b4233cuotsuf8" path="res://Tilemaps/TilseSet1.tres" id="1_fj6oa"]
 [ext_resource type="Script" uid="uid://vbdccqvsbu8o" path="res://Maps/area_1_1.gd" id="1_tm7g4"]
+[ext_resource type="PackedScene" uid="uid://dwruxkwn6takp" path="res://UI/LevelHUD.tscn" id="2_tdtuw"]
 [ext_resource type="PackedScene" uid="uid://bciiqffged2lm" path="res://Character sprites-tracking/sunny.tscn" id="3_du7c5"]
 [ext_resource type="PackedScene" uid="uid://bbg26vj7ocs0j" path="res://Character sprites-tracking/adrien.tscn" id="4_k7al6"]
 [ext_resource type="Script" uid="uid://d0r1wmgeopvtm" path="res://Maps/enemy_spawner.gd" id="5_k7al6"]
@@ -29,6 +30,8 @@ point_count = 14
 
 [node name="Area1-1" type="Node2D" unique_id=2012025654]
 script = ExtResource("1_tm7g4")
+
+[node name="LevelHUD" parent="." unique_id=68151151 instance=ExtResource("2_tdtuw")]
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1074664983]
 tile_set = ExtResource("1_fj6oa")

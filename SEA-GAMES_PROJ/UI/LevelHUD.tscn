@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://dwruxkwn6takp"]
+
+[ext_resource type="Script" uid="uid://disnf31afs7lx" path="res://UI/level_hud.gd" id="1_biqg1"]
+[ext_resource type="Texture2D" uid="uid://dyq6rmfg4kwiv" path="res://Assets/fishing_free/fishing_free/global_free_recoloured.png" id="1_iut3v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_biqg1"]
+atlas = ExtResource("1_iut3v")
+region = Rect2(32, 48, 16, 16)
+
+[node name="LevelHUD" type="CanvasLayer" unique_id=68151151]
+script = ExtResource("1_biqg1")
+
+[node name="TopBar" type="Panel" parent="." unique_id=1528536014]
+custom_minimum_size = Vector2(0, 40)
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="TopBar" unique_id=25671390]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TopBar/MarginContainer" unique_id=1637308631]
+layout_mode = 2
+
+[node name="PointContainer" type="HBoxContainer" parent="TopBar/MarginContainer/HBoxContainer" unique_id=1376113872]
+layout_mode = 2
+
+[node name="Point" type="TextureRect" parent="TopBar/MarginContainer/HBoxContainer/PointContainer" unique_id=655016448]
+custom_minimum_size = Vector2(32, 16)
+layout_mode = 2
+texture = SubResource("AtlasTexture_biqg1")
+
+[node name="PointLabel" type="Label" parent="TopBar/MarginContainer/HBoxContainer/PointContainer" unique_id=120346748]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "200"
+
+[node name="CharacterBar" type="HBoxContainer" parent="TopBar/MarginContainer/HBoxContainer" unique_id=194914061]
+layout_mode = 2
+theme_override_constants/separation = 10
