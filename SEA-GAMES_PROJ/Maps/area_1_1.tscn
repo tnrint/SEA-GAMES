@@ -21,6 +21,12 @@ _data = {
 }
 point_count = 6
 
+[sub_resource type="Curve2D" id="Curve2D_psn0c"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 359, -9, 0, 0, 0, 0, 388, 95, 0, 0, 0, 0, 358, 142, 0, 0, 0, 0, 253, 145, 0, 0, 0, 0, 201, 123, 0, 0, 0, 0, 124, 149, 0, 0, 0, 0, 75, 130, 0, 0, 0, 0, 62, 215, 0, 0, 0, 0, 99, 245, 0, 0, 0, 0, 190, 242, 0, 0, 0, 0, 306, 261, 0, 0, 0, 0, 386, 235, 0, 0, 0, 0, 407, 333, 0, 0, 0, 0, 376, 373)
+}
+point_count = 14
+
 [node name="Area1-1" type="Node2D" unique_id=2012025654]
 script = ExtResource("1_tm7g4")
 
@@ -51,6 +57,9 @@ tile_set = ExtResource("1_fj6oa")
 
 [node name="Path2D" type="Path2D" parent="." unique_id=925745643]
 curve = SubResource("Curve2D_fj6oa")
+
+[node name="Path2D2" type="Path2D" parent="." unique_id=679897224]
+curve = SubResource("Curve2D_psn0c")
 
 [node name="Tower" parent="." unique_id=734962037 instance=ExtResource("3_du7c5")]
 position = Vector2(205, 85)
