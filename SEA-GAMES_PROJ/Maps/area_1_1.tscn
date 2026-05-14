@@ -3,8 +3,6 @@
 [ext_resource type="TileSet" uid="uid://b4233cuotsuf8" path="res://Tilemaps/TilseSet1.tres" id="1_fj6oa"]
 [ext_resource type="Script" uid="uid://vbdccqvsbu8o" path="res://Maps/area_1_1.gd" id="1_tm7g4"]
 [ext_resource type="PackedScene" uid="uid://dwruxkwn6takp" path="res://UI/LevelHUD.tscn" id="2_tdtuw"]
-[ext_resource type="PackedScene" uid="uid://bciiqffged2lm" path="res://Character sprites-tracking/sunny.tscn" id="3_du7c5"]
-[ext_resource type="PackedScene" uid="uid://bbg26vj7ocs0j" path="res://Character sprites-tracking/adrien.tscn" id="4_k7al6"]
 [ext_resource type="Script" uid="uid://d0r1wmgeopvtm" path="res://Maps/enemy_spawner.gd" id="5_k7al6"]
 [ext_resource type="PackedScene" uid="uid://b6u81u1lok7u8" path="res://Enemies/trash_1.tscn" id="6_nugod"]
 [ext_resource type="PackedScene" uid="uid://3oy24w6arr74" path="res://Enemies/bottle_trash.tscn" id="7_o3cye"]
@@ -63,12 +61,6 @@ curve = SubResource("Curve2D_fj6oa")
 
 [node name="Path2D2" type="Path2D" parent="." unique_id=679897224]
 curve = SubResource("Curve2D_psn0c")
-
-[node name="Tower" parent="." unique_id=734962037 instance=ExtResource("3_du7c5")]
-position = Vector2(205, 85)
-
-[node name="Tower2" parent="." unique_id=2138814630 instance=ExtResource("4_k7al6")]
-position = Vector2(472, 266)
 
 [node name="EnemySpawner" type="Node2D" parent="." unique_id=31327674]
 position = Vector2(32, 57)
