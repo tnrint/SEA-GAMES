@@ -1,18 +1,16 @@
 [gd_scene format=3 uid="uid://dknfgt72qgxam"]
 
 [ext_resource type="Script" uid="uid://5kyejpt78uve" path="res://UI/character_card.gd" id="1_fnx8l"]
+[ext_resource type="Texture2D" uid="uid://yrd8rmwlq340" path="res://UI/button_texture.tres" id="1_lb5l8"]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_mdlon"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0qrxy"]
-texture = SubResource("CanvasTexture_mdlon")
-modulate_color = Color(0.16470589, 0.59607846, 0.13725491, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tvsyi"]
+texture = ExtResource("1_lb5l8")
 
 [node name="CharacterCard" type="Button" unique_id=1953580854]
 custom_minimum_size = Vector2(20, 30)
 offset_right = 8.0
 offset_bottom = 8.0
-theme_override_styles/normal = SubResource("StyleBoxTexture_0qrxy")
+theme_override_styles/normal = SubResource("StyleBoxTexture_tvsyi")
 script = ExtResource("1_fnx8l")
 
 [node name="Icon" type="TextureRect" parent="." unique_id=749270547]
