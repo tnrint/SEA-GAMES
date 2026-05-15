@@ -1,5 +1,6 @@
 extends CanvasLayer
 
+signal character_chosen(char_data: CharacterData)
 var points := 200
 var selected_character: CharacterData = null
 
@@ -19,9 +20,31 @@ func _ready() -> void:
 # -----------------------
 func setup_characters() -> void:
 	characters = [
-		CharacterData.new("Fish", 50, preload("res://UI/fish_icon.tres")),
-		CharacterData.new("Ice Fish", 125, preload("res://UI/icefish_icon.tres")),
-		CharacterData.new("Sword Fish", 75, preload("res://UI/swordfish_icon.tres")),
+		CharacterData.new(
+			"Fish", 
+			50, 
+			preload("res://UI/fish_icon.tres"),
+			"res://character sprites-tracking/fishy.tscn"
+			),
+		CharacterData.new(
+			"Ice Fish", 
+			125, 
+			preload("res://UI/icefish_icon.tres"),
+            "res://character sprites-tracking/ice_fishy.tscn"
+		),
+		CharacterData.new(
+			"Sword Fish", 
+			75, 
+			preload("res://UI/swordfish_icon.tres"),
+			"res://Character sprites-tracking/Swordfish.tscn"  # adjust filename if needed
+		),
+		CharacterData.new(
+			"JellyFish", 
+			200, 
+			preload("res://UI/jellyfish_icon.tres"),
+			"res://Character sprites-tracking/jellyfish.tscn"  # adjust filename if needed
+		),
+		# Add more easily...
 	]
 
 # -----------------------
@@ -49,6 +72,7 @@ func create_card(char_data: CharacterData) -> void:
 func on_character_selected(char_data: CharacterData) -> void:
 	selected_character = char_data
 	print("Selected:", char_data.name)
+	character_chosen.emit(char_data) 
 
 # -----------------------
 # POINTS
