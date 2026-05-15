@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bk47exqh3kmjk"
-path="res://.godot/imported/SawShark.png-a89b33eb41f042152b1c8cf8ff7e0f02.ctex"
+uid="uid://2yh350blafr7"
+path="res://.godot/imported/Squid - 32x16.png-d65c6872f306868109097645b292a1ae.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/SpearFishing Assets Pack/SpearFishing Assets Pack/Sprites/SawShark - 48x32/SawShark.png"
-dest_files=["res://.godot/imported/SawShark.png-a89b33eb41f042152b1c8cf8ff7e0f02.ctex"]
+source_file="res://Assets_Characters/Assets_Characters/Squid - 32x16.png"
+dest_files=["res://.godot/imported/Squid - 32x16.png-d65c6872f306868109097645b292a1ae.ctex"]
 
 [params]
 

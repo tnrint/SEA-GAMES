@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d18n2np1mrln"]
 
 [ext_resource type="Script" uid="uid://bydfm10ep6jid" path="res://Character sprites-tracking/jellyfish.gd" id="1_10puu"]
-[ext_resource type="Texture2D" uid="uid://b3yer8wfx22yv" path="res://Assets/SpearFishing Assets Pack/SpearFishing Assets Pack/Sprites/JellyFish - 32x16/JellyFish.png" id="2_sw6k5"]
+[ext_resource type="Texture2D" uid="uid://b3yer8wfx22yv" path="res://Assets_Characters/Assets_Characters/JellyFish.png" id="2_sw6k5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_10puu"]
 atlas = ExtResource("2_sw6k5")

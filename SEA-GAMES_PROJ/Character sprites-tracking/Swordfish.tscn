@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://boa2xnc4ouvdn"]
 
 [ext_resource type="Script" uid="uid://cch2rcj61dtbo" path="res://Character sprites-tracking/swordfish.gd" id="1_ilx51"]
-[ext_resource type="Texture2D" uid="uid://dvfxxorvtg7v" path="res://Assets/SpearFishing Assets Pack/SpearFishing Assets Pack/Sprites/SwordFish - 48x32/SwordFish.png" id="2_g6kfs"]
+[ext_resource type="Texture2D" uid="uid://dvfxxorvtg7v" path="res://Assets_Characters/Assets_Characters/SwordFish.png" id="2_g6kfs"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_23iw2"]
 radius = 24.0

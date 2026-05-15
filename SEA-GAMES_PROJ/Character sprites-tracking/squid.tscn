@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://cut66n6vwxsff"]
+
+[ext_resource type="Script" uid="uid://bk3o7mknk1w2w" path="res://Character sprites-tracking/squid.gd" id="1_0mi87"]
+[ext_resource type="Texture2D" uid="uid://2yh350blafr7" path="res://Assets_Characters/Assets_Characters/Squid - 32x16.png" id="1_asoqx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ghqny"]
+atlas = ExtResource("1_asoqx")
+region = Rect2(32, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6mu1h"]
+atlas = ExtResource("1_asoqx")
+region = Rect2(64, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0mi87"]
+atlas = ExtResource("1_asoqx")
+region = Rect2(0, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p6pwp"]
+atlas = ExtResource("1_asoqx")
+region = Rect2(32, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bm4hd"]
+atlas = ExtResource("1_asoqx")
+region = Rect2(96, 0, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ghqny"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ghqny")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6mu1h")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0mi87")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p6pwp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bm4hd")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6mu1h"]
+radius = 15.132746
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0mi87"]
+
+[node name="Squid" type="Node2D" unique_id=776690137]
+script = ExtResource("1_0mi87")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=309814032]
+position = Vector2(-3, 1)
+scale = Vector2(1.4375, 1.6875)
+sprite_frames = SubResource("SpriteFrames_ghqny")
+animation = &"idle"
+
+[node name="DetectionRange" type="Area2D" parent="." unique_id=729053248]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionRange" unique_id=788447189]
+shape = SubResource("CircleShape2D_6mu1h")
+
+[node name="BuffVisual" type="AnimatedSprite2D" parent="." unique_id=185953652]
+sprite_frames = SubResource("SpriteFrames_0mi87")
