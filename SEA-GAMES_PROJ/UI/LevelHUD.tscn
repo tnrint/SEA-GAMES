@@ -2,6 +2,15 @@
 
 [ext_resource type="Script" uid="uid://disnf31afs7lx" path="res://UI/level_hud.gd" id="1_biqg1"]
 [ext_resource type="Texture2D" uid="uid://dyq6rmfg4kwiv" path="res://Assets/fishing_free/fishing_free/global_free_recoloured.png" id="1_iut3v"]
+[ext_resource type="Texture2D" uid="uid://du0fbb5ven2rj" path="res://Assets/UI_Wood_Fonts/Wooden Pixel Art GUI 32x32.png" id="2_luhc7"]
+[ext_resource type="FontFile" uid="uid://cpwxixdj8xhmk" path="res://Assets/Font/Bungee-Regular.ttf" id="4_sbtos"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4yxk"]
+atlas = ExtResource("2_luhc7")
+region = Rect2(741.6909, 738.3815, 85.61273, 24.748596)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vr3e4"]
+texture = SubResource("AtlasTexture_t4yxk")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_biqg1"]
 atlas = ExtResource("1_iut3v")
@@ -18,6 +27,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_vr3e4")
 
 [node name="MarginContainer" type="MarginContainer" parent="TopBar" unique_id=25671390]
 layout_mode = 0
@@ -37,6 +47,8 @@ texture = SubResource("AtlasTexture_biqg1")
 
 [node name="PointLabel" type="Label" parent="TopBar/MarginContainer/HBoxContainer/PointContainer" unique_id=120346748]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_sbtos")
 theme_override_font_sizes/font_size = 16
 text = "200"
 

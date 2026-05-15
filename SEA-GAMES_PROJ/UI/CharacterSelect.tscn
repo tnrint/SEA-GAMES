@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://2mn2whqgffyi"]
+
+[ext_resource type="Script" uid="uid://dk8dxf8xlo110" path="res://UI/character_select.gd" id="1_y3c88"]
+[ext_resource type="Texture2D" uid="uid://du0fbb5ven2rj" path="res://Assets/UI_Wood_Fonts/Wooden Pixel Art GUI 32x32.png" id="2_u51ui"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q2peg"]
+atlas = ExtResource("2_u51ui")
+region = Rect2(164.14021, 643.84045, 86.15785, 88.19708)
+
+[node name="CharacterSelect" type="Control" unique_id=844900700]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y3c88")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1031574233]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_q2peg")
+
+[node name="TopBar" type="HBoxContainer" parent="." unique_id=376638070]
+layout_mode = 0
+offset_left = 201.0
+offset_top = 68.0
+offset_right = 424.0
+offset_bottom = 108.0
+
+[node name="PointsLabel" type="Label" parent="TopBar" unique_id=839897662]
+layout_mode = 2
+text = "Choose 5 Characters"
+
+[node name="StartButton" type="Button" parent="TopBar" unique_id=632145816]
+layout_mode = 2
+text = "Ready!"
+
+[node name="SelectedBar" type="HBoxContainer" parent="." unique_id=212563283]
+layout_mode = 0
+offset_left = 137.0
+offset_top = 114.0
+offset_right = 177.0
+offset_bottom = 154.0
+
+[node name="CardGrid" type="GridContainer" parent="." unique_id=1650323621]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 219.0
+offset_right = 176.0
+offset_bottom = 259.0

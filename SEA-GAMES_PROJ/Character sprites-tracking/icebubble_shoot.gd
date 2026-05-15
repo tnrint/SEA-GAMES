@@ -30,6 +30,7 @@ func explode(area: Area2D):
 
 	if area.has_method("take_damage"):
 		area.take_damage(damage)
+		CurrencyManager.add_currency_from_damage(damage)
 		print("Bubble hit enemy for:", damage)
 
 	set_physics_process(false)

@@ -21,9 +21,11 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-SaveManager="*res://SaveStates/SaveManager.gd"
+SaveManager="*res://Managers/SaveManager.gd"
 CurrencyManager="*uid://djysin8bt3xt2"
 MusicManager="*uid://dvqlcx5w5ng83"
+GameManager="*uid://c67px8mqmtk03"
+SelectedCharactersManager="*uid://djj10tc2rw3h3"
 
 [display]
 

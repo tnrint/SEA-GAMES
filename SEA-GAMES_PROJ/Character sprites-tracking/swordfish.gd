@@ -65,4 +65,5 @@ func find_trash():
 func hit_trash():
 	if target_node.has_method("take_damage"):
 		target_node.take_damage(damage_amount)
+		CurrencyManager.add_currency_from_damage(damage_amount)
 	state = RETURNING

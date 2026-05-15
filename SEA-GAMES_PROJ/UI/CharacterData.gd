@@ -1,15 +1,13 @@
-class_name CharacterData
 extends Resource
+class_name CharacterData
 
-@export var name: String = "Character"
-@export var cost: int = 50
+@export var character_name: String = ""
+@export var cost: int = 0
 @export var icon: Texture2D
+@export var scene_path: String = ""
 
-# NEW: Path to the actual character scene (fishy.tscn, etc.)
-@export_file("*.tscn") var scene_path: String = ""
-
-func _init(p_name: String = "", p_cost: int = 50, p_icon: Texture2D = null, p_scene_path: String = ""):
-	name = p_name
-	cost = p_cost
-	icon = p_icon
-	scene_path = p_scene_path
+func _init(name: String = "", c: int = 0, i: Texture2D = null, path: String = ""):
+	character_name = name
+	cost = c
+	icon = i
+	scene_path = path
