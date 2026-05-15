@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvfxxorvtg7v"
-path="res://.godot/imported/SwordFish.png-fbc584d51a9889adcef429090bcc534d.ctex"
+uid="uid://b3yer8wfx22yv"
+path="res://.godot/imported/JellyFish.png-bfc78a68a0f7c04cfa432fe1484cd9fb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/SpearFishing Assets Pack/SpearFishing Assets Pack/Sprites/SwordFish - 48x32/SwordFish.png"
-dest_files=["res://.godot/imported/SwordFish.png-fbc584d51a9889adcef429090bcc534d.ctex"]
+source_file="res://Assets_Characters/Assets_Characters/JellyFish.png"
+dest_files=["res://.godot/imported/JellyFish.png-bfc78a68a0f7c04cfa432fe1484cd9fb.ctex"]
 
 [params]
 

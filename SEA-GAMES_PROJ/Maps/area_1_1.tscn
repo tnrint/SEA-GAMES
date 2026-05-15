@@ -14,6 +14,10 @@
 [ext_resource type="PackedScene" uid="uid://boa2xnc4ouvdn" path="res://Character sprites-tracking/Swordfish.tscn" id="12_fsqkf"]
 [ext_resource type="PackedScene" uid="uid://bfie3o8k48do1" path="res://Character sprites-tracking/sawshark.tscn" id="13_p4v8e"]
 [ext_resource type="PackedScene" uid="uid://d18n2np1mrln" path="res://Character sprites-tracking/jellyfish.tscn" id="14_psn0c"]
+[ext_resource type="PackedScene" uid="uid://baqxn3n44coes" path="res://Character sprites-tracking/angler_fish.tscn" id="15_tdtuw"]
+[ext_resource type="PackedScene" uid="uid://cbmrhpxl7x7k0" path="res://Character sprites-tracking/red_fish.tscn" id="16_wlo3j"]
+[ext_resource type="PackedScene" uid="uid://cut66n6vwxsff" path="res://Character sprites-tracking/squid.tscn" id="17_cobyq"]
+[ext_resource type="PackedScene" uid="uid://5ifkji2al1j" path="res://Character sprites-tracking/squid_bullet.tscn" id="18_ad8ng"]
 
 [sub_resource type="Curve2D" id="Curve2D_fj6oa"]
 _data = {
@@ -72,15 +76,25 @@ position = Vector2(281, 294)
 position = Vector2(236, 298)
 
 [node name="Tower5" parent="." unique_id=1750502069 instance=ExtResource("11_4i10v")]
-position = Vector2(185, 171)
+position = Vector2(127, 181)
 
 [node name="Tower6" parent="." unique_id=946436573 instance=ExtResource("12_fsqkf")]
-position = Vector2(54, 285)
+position = Vector2(69, 336)
 damage_amount = 30
 
 [node name="Sawshark" parent="." unique_id=747321526 instance=ExtResource("13_p4v8e")]
-position = Vector2(343, 105)
+position = Vector2(41, 276)
 damage = 40
 
 [node name="Jellyfish" parent="." unique_id=45618479 instance=ExtResource("14_psn0c")]
 position = Vector2(309, 308)
+
+[node name="AnglerFish" parent="." unique_id=914514560 instance=ExtResource("15_tdtuw")]
+position = Vector2(214, 332)
+
+[node name="RedFish" parent="." unique_id=1937940595 instance=ExtResource("16_wlo3j")]
+position = Vector2(432, 316)
+
+[node name="Squid" parent="." unique_id=776690137 instance=ExtResource("17_cobyq")]
+position = Vector2(24, 195)
+bullet_scene = ExtResource("18_ad8ng")

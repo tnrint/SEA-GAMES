@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bfie3o8k48do1"]
 
 [ext_resource type="Script" uid="uid://bhqbxyln3ayi4" path="res://Character sprites-tracking/sawshark.gd" id="1_230vd"]
-[ext_resource type="Texture2D" uid="uid://bk47exqh3kmjk" path="res://Assets/SpearFishing Assets Pack/SpearFishing Assets Pack/Sprites/SawShark - 48x32/SawShark.png" id="1_lutax"]
+[ext_resource type="Texture2D" uid="uid://bk47exqh3kmjk" path="res://Assets_Characters/Assets_Characters/SawShark.png" id="1_lutax"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lutax"]
 atlas = ExtResource("1_lutax")
