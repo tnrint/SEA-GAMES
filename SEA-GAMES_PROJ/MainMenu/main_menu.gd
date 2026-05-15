@@ -2,8 +2,15 @@ extends Control
 
 
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+@onready var name_label = $SpeechBubble/NameText
+
+func _ready():
+	var profile = SaveManager.get_current_profile()
+
+	if profile == "":
+		name_label.text = "Welcome!"
+	else:
+		name_label.text = "Welcome back, " + profile + "!"
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -25,5 +32,4 @@ func _on_exit_pressed() -> void:
 
 func _on_load_pressed() -> void:
 	get_tree().change_scene_to_file("res://MainMenu/load_menu.tscn")
-	
 	

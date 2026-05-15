@@ -12,6 +12,7 @@ func _ready():
 	refresh_profiles()
 
 
+
 # =============================
 # CREATE PROFILE (CUSTOM NAME)
 # =============================
@@ -70,7 +71,7 @@ func refresh_profiles():
 
 func _on_profile_selected(profile_name):
 	SaveManager.set_current_profile(profile_name)
-	get_tree().change_scene_to_file("res://scenes/game.tscn")
+	get_tree().change_scene_to_file("res://MainMenu/main_menu.tscn")
 
 
 func _on_delete_profile(profile_name):
@@ -81,3 +82,7 @@ func _on_delete_profile(profile_name):
 
 func _on_back_pressed():
 	get_tree().change_scene_to_file("res://MainMenu/main_menu.tscn")
+
+func load_profile(profile_name:String):
+	SaveManager.set_current_profile(profile_name)  # ✅ correct place
+	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")

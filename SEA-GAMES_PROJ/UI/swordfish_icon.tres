@@ -1,7 +1,7 @@
-[gd_resource type="AtlasTexture" format=3 uid="uid://clhleik6kxarr"]
+[gd_resource type="AtlasTexture" format=3 uid="uid://egqnhifgjxj8"]
 
-[ext_resource type="Texture2D" uid="uid://dvfxxorvtg7v" path="res://Assets/SpearFishing Assets Pack/SpearFishing Assets Pack/Sprites/SwordFish - 48x32/SwordFish.png" id="1_wkafi"]
+[ext_resource type="Texture2D" uid="uid://yn3t72wfb4tx" path="res://Icons/icons.png" id="1_wkafi"]
 
 [resource]
 atlas = ExtResource("1_wkafi")
-region = Rect2(16, 0, 32, 32)
+region = Rect2(18, 0, 18, 18)

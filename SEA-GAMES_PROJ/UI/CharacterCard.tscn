@@ -1,20 +1,30 @@
 [gd_scene format=3 uid="uid://dknfgt72qgxam"]
 
 [ext_resource type="Script" uid="uid://5kyejpt78uve" path="res://UI/character_card.gd" id="1_fnx8l"]
-[ext_resource type="Texture2D" uid="uid://yrd8rmwlq340" path="res://UI/button_texture.tres" id="1_lb5l8"]
+[ext_resource type="Texture2D" uid="uid://cs003kvabon6x" path="res://UI/CardDefault.png" id="1_tvsyi"]
+[ext_resource type="Texture2D" uid="uid://b52phyb412if5" path="res://UI/CardHover.png" id="2_x7bqu"]
+[ext_resource type="FontFile" uid="uid://cpwxixdj8xhmk" path="res://Assets/Font/Bungee-Regular.ttf" id="4_x7bqu"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e5hky"]
+texture = ExtResource("1_tvsyi")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eiecq"]
+texture = ExtResource("2_x7bqu")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tvsyi"]
-texture = ExtResource("1_lb5l8")
+texture = ExtResource("2_x7bqu")
 
 [node name="CharacterCard" type="Button" unique_id=1953580854]
 custom_minimum_size = Vector2(20, 30)
 offset_right = 8.0
 offset_bottom = 8.0
-theme_override_styles/normal = SubResource("StyleBoxTexture_tvsyi")
+theme_override_styles/normal = SubResource("StyleBoxTexture_e5hky")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_eiecq")
+theme_override_styles/hover = SubResource("StyleBoxTexture_tvsyi")
 script = ExtResource("1_fnx8l")
 
 [node name="Icon" type="TextureRect" parent="." unique_id=749270547]
-custom_minimum_size = Vector2(20, 20)
+custom_minimum_size = Vector2(15, 20)
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -29,7 +39,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -5.0
-offset_top = -23.0
+offset_top = -18.0
 offset_right = 5.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("4_x7bqu")
+theme_override_font_sizes/font_size = 10

@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://cioo4nvhsj56q"]
+[gd_scene format=3 uid="uid://cioo4nvhsj56q"]
 
 [ext_resource type="Texture2D" uid="uid://bqotltl2ux4bc" path="res://Assets/beach bckgrnd.jpg" id="1_nhkf3"]
 [ext_resource type="Script" uid="uid://blifhby5kb77m" path="res://MainMenu/main_menu.gd" id="1_po2gx"]
 [ext_resource type="FontFile" uid="uid://cpwxixdj8xhmk" path="res://Assets/Font/Bungee-Regular.ttf" id="2_5de1l"]
 [ext_resource type="Texture2D" uid="uid://c5i1l12eni33g" path="res://Assets/UI_Wood_Fonts/Default.png" id="3_ajn5b"]
 [ext_resource type="Texture2D" uid="uid://ca6426vr1dl00" path="res://Assets/UI_Wood_Fonts/HoverPress.png" id="4_ajn5b"]
+[ext_resource type="Texture2D" uid="uid://30ohjl0vrpy3" path="res://Icons/crazyDaveFish.png" id="6_kbpwf"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_po2gx"]
 texture = ExtResource("3_ajn5b")
@@ -27,7 +28,18 @@ texture = ExtResource("4_ajn5b")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_83n0s"]
 texture = ExtResource("4_ajn5b")
 
-[node name="MainMenu" type="Control"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_jdgnk"]
+atlas = ExtResource("6_kbpwf")
+region = Rect2(325.2, 161.29999, 287.99994, 246.4)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kbpwf"]
+load_path = "res://.godot/imported/Wooden Pixel Art GUI 32x32.png-593dfd469f0b9e28d8a72ffab7c61b6c.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8n28k"]
+texture = SubResource("CompressedTexture2D_kbpwf")
+region_rect = Rect2(574.8948, 927.65265, 97.2948, 32.021057)
+
+[node name="MainMenu" type="Control" unique_id=808562897]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -36,12 +48,12 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_po2gx")
 
-[node name="BeachBckgrnd" type="Sprite2D" parent="."]
+[node name="BeachBckgrnd" type="Sprite2D" parent="." unique_id=1332576801]
 position = Vector2(302, 235.99998)
 scale = Vector2(0.68696445, 0.6869643)
 texture = ExtResource("1_nhkf3")
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=179882529]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -55,7 +67,7 @@ theme_override_fonts/font = ExtResource("2_5de1l")
 theme_override_font_sizes/font_size = 50
 text = "SEA GAMES"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1853379799]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -69,7 +81,7 @@ offset_bottom = 108.950836
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Play" type="Button" parent="VBoxContainer"]
+[node name="Play" type="Button" parent="VBoxContainer" unique_id=1520498179]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 2
@@ -83,7 +95,7 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_5de1l")
 theme_override_styles/hover = SubResource("StyleBoxTexture_ajn5b")
 text = "PLAY"
 
-[node name="Quick Play" type="Button" parent="VBoxContainer"]
+[node name="Quick Play" type="Button" parent="VBoxContainer" unique_id=656787859]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 2
@@ -97,7 +109,7 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_5de1l")
 theme_override_styles/hover = SubResource("StyleBoxTexture_ajn5b")
 text = "QUICK PLAY"
 
-[node name="Load" type="Button" parent="VBoxContainer"]
+[node name="Load" type="Button" parent="VBoxContainer" unique_id=1253298242]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 2
@@ -111,7 +123,7 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_5de1l")
 theme_override_styles/hover = SubResource("StyleBoxTexture_ajn5b")
 text = "LOAD"
 
-[node name="Options" type="Button" parent="VBoxContainer"]
+[node name="Options" type="Button" parent="VBoxContainer" unique_id=1872680732]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 2
@@ -125,7 +137,7 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_kbpwf")
 theme_override_styles/hover = SubResource("StyleBoxTexture_jdgnk")
 text = "OPTION"
 
-[node name="Exit" type="Button" parent="VBoxContainer"]
+[node name="Exit" type="Button" parent="VBoxContainer" unique_id=551077024]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 2
@@ -139,6 +151,50 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_r0x8f")
 theme_override_styles/hover = SubResource("StyleBoxTexture_83n0s")
 text = "EXIT
 "
+
+[node name="CrazyFish" type="TextureRect" parent="." unique_id=1999458363]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -34.0
+offset_top = -250.0
+offset_right = 253.0
+offset_bottom = -4.0
+grow_vertical = 0
+texture = SubResource("AtlasTexture_jdgnk")
+
+[node name="SpeechBubble" type="Panel" parent="." unique_id=1565465152]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -121.0
+offset_top = -113.0
+offset_right = 196.0
+offset_bottom = -59.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_8n28k")
+
+[node name="NameText" type="Label" parent="SpeechBubble" unique_id=1235794740]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -21.5
+offset_right = 20.0
+offset_bottom = 21.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_5de1l")
+theme_override_font_sizes/font_size = 16
 
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/Load" to="." method="_on_load_pressed"]

@@ -85,3 +85,6 @@ func delete_profile(profile_name:String):
 func profile_exists(profile_name:String) -> bool:
 	var profiles = get_all_profiles()
 	return profile_name in profiles
+	
+func get_current_profile() -> String:
+	return current_profile
