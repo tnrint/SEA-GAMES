@@ -79,7 +79,8 @@ position = Vector2(54, 285)
 damage_amount = 30
 
 [node name="Sawshark" parent="." unique_id=747321526 instance=ExtResource("13_p4v8e")]
-position = Vector2(341, 299)
+position = Vector2(343, 105)
+damage = 40
 
 [node name="Jellyfish" parent="." unique_id=45618479 instance=ExtResource("14_psn0c")]
-position = Vector2(341, 102)
+position = Vector2(309, 308)
