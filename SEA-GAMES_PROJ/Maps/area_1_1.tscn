@@ -6,13 +6,7 @@
 [ext_resource type="Script" uid="uid://d0r1wmgeopvtm" path="res://Maps/enemy_spawner.gd" id="5_k7al6"]
 [ext_resource type="PackedScene" uid="uid://b6u81u1lok7u8" path="res://Enemies/trash_1.tscn" id="6_nugod"]
 [ext_resource type="PackedScene" uid="uid://3oy24w6arr74" path="res://Enemies/bottle_trash.tscn" id="7_o3cye"]
-[ext_resource type="PackedScene" uid="uid://2yi5r660vmi3" path="res://Character sprites-tracking/fishy.tscn" id="8_o3cye"]
 [ext_resource type="PackedScene" uid="uid://cfhq4j3knotv" path="res://Enemies/trashbag_trash.tscn" id="8_w637m"]
-[ext_resource type="PackedScene" uid="uid://mdrpx77gvyxs" path="res://Character sprites-tracking/ice_fishy.tscn" id="9_4nwt8"]
-[ext_resource type="PackedScene" uid="uid://b8ijmtt1svbjy" path="res://Character sprites-tracking/Sharky.tscn" id="11_4i10v"]
-[ext_resource type="PackedScene" uid="uid://boa2xnc4ouvdn" path="res://Character sprites-tracking/Swordfish.tscn" id="12_fsqkf"]
-[ext_resource type="PackedScene" uid="uid://bfie3o8k48do1" path="res://Character sprites-tracking/sawshark.tscn" id="13_p4v8e"]
-[ext_resource type="PackedScene" uid="uid://d18n2np1mrln" path="res://Character sprites-tracking/jellyfish.tscn" id="14_psn0c"]
 
 [sub_resource type="Curve2D" id="Curve2D_fj6oa"]
 _data = {
@@ -68,22 +62,3 @@ script = ExtResource("5_k7al6")
 bottle_scene = ExtResource("7_o3cye")
 trash_scene = ExtResource("6_nugod")
 trashbag_scene = ExtResource("8_w637m")
-
-[node name="Tower3" parent="." unique_id=2121608849 instance=ExtResource("8_o3cye")]
-position = Vector2(367, 168)
-
-[node name="Tower4" parent="." unique_id=800732504 instance=ExtResource("9_4nwt8")]
-position = Vector2(165, 434)
-
-[node name="Tower5" parent="." unique_id=1750502069 instance=ExtResource("11_4i10v")]
-position = Vector2(185, 171)
-
-[node name="Tower6" parent="." unique_id=946436573 instance=ExtResource("12_fsqkf")]
-position = Vector2(54, 285)
-damage_amount = 30
-
-[node name="Sawshark" parent="." unique_id=747321526 instance=ExtResource("13_p4v8e")]
-position = Vector2(453, 300)
-
-[node name="Jellyfish" parent="." unique_id=45618479 instance=ExtResource("14_psn0c")]
-position = Vector2(341, 102)
