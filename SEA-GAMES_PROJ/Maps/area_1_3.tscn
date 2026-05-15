@@ -28,6 +28,7 @@ _data = {
 point_count = 12
 
 [node name="area_1_3" type="Node2D" unique_id=1017985611]
+metadata/area = 1
 
 [node name="LevelHUD" parent="." unique_id=68151151 instance=ExtResource("1_00ia8")]
 

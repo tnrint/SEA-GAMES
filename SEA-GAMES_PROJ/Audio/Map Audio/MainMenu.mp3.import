@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bd2up4vkroki8"
+path="res://.godot/imported/MainMenu.mp3-f992bb2346a74899cfdc8708193f13bf.mp3str"
+
+[deps]
+
+source_file="res://Audio/Map Audio/MainMenu.mp3"
+dest_files=["res://.godot/imported/MainMenu.mp3-f992bb2346a74899cfdc8708193f13bf.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

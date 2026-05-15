@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://dtscvty4m645t"]
 
 [ext_resource type="TileSet" uid="uid://b4233cuotsuf8" path="res://Tilemaps/TilseSet1.tres" id="1_tn6vc"]
+[ext_resource type="PackedScene" uid="uid://dwruxkwn6takp" path="res://UI/LevelHUD.tscn" id="1_x8xqs"]
 
 [sub_resource type="Curve2D" id="Curve2D_tn6vc"]
 _data = {
@@ -27,6 +28,9 @@ _data = {
 point_count = 8
 
 [node name="area_2_3" type="Node2D" unique_id=1687956069]
+metadata/area = 2
+
+[node name="LevelHUD" parent="." unique_id=68151151 instance=ExtResource("1_x8xqs")]
 
 [node name="TileMap" type="TileMap" parent="." unique_id=390854052]
 tile_set = ExtResource("1_tn6vc")

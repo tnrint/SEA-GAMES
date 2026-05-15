@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dehbuivl6s6vn"
+path="res://.godot/imported/Area2.mp3-86e6c9ca30884882daf42fe9a56ae8cd.mp3str"
+
+[deps]
+
+source_file="res://Audio/Map Audio/Area2.mp3"
+dest_files=["res://.godot/imported/Area2.mp3-86e6c9ca30884882daf42fe9a56ae8cd.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

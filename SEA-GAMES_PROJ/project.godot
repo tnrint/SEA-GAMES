@@ -23,6 +23,7 @@ config/icon="res://icon.svg"
 
 SaveManager="*res://SaveStates/SaveManager.gd"
 CurrencyManager="*uid://djysin8bt3xt2"
+MusicManager="*uid://dvqlcx5w5ng83"
 
 [display]
 

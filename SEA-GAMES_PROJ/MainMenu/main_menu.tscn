@@ -47,6 +47,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_po2gx")
+metadata/area = 0
 
 [node name="BeachBckgrnd" type="Sprite2D" parent="." unique_id=1332576801]
 position = Vector2(302, 235.99998)
