@@ -13,7 +13,7 @@ func _ready() -> void:
 	setup_characters()
 	load_character_cards()
 	update_points()
-
+	CurrencyManager.currency_changed.connect(_on_currency_changed)
 # -----------------------
 # CHARACTER SETUP
 # -----------------------
@@ -55,3 +55,7 @@ func on_character_selected(char_data: CharacterData) -> void:
 # -----------------------
 func update_points() -> void:
 	point_label.text = str(points)
+	
+func _on_currency_changed(new_amount: int) -> void:
+	points = new_amount
+	update_points()

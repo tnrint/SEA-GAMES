@@ -70,10 +70,10 @@ trash_scene = ExtResource("6_nugod")
 trashbag_scene = ExtResource("8_w637m")
 
 [node name="Tower3" parent="." unique_id=2121608849 instance=ExtResource("8_o3cye")]
-position = Vector2(281, 294)
+position = Vector2(367, 168)
 
 [node name="Tower4" parent="." unique_id=800732504 instance=ExtResource("9_4nwt8")]
-position = Vector2(236, 298)
+position = Vector2(165, 434)
 
 [node name="Tower5" parent="." unique_id=1750502069 instance=ExtResource("11_4i10v")]
 position = Vector2(185, 171)
@@ -83,7 +83,7 @@ position = Vector2(54, 285)
 damage_amount = 30
 
 [node name="Sawshark" parent="." unique_id=747321526 instance=ExtResource("13_p4v8e")]
-position = Vector2(341, 299)
+position = Vector2(453, 300)
 
 [node name="Jellyfish" parent="." unique_id=45618479 instance=ExtResource("14_psn0c")]
 position = Vector2(341, 102)

@@ -22,6 +22,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 SaveManager="*res://SaveStates/SaveManager.gd"
+CurrencyManager="*uid://djysin8bt3xt2"
 
 [display]
 
