@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://5ifkji2al1j"]
+
+[ext_resource type="Script" uid="uid://bo0e6a3hxg0ph" path="res://Character sprites-tracking/squid_bullet.gd" id="1_ckgm1"]
+[ext_resource type="Texture2D" uid="uid://05w0a5ts17w5" path="res://Assets_Characters/Assets_Characters/Bubble - 8x8.png" id="1_jq7ye"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ckgm1"]
+atlas = ExtResource("1_jq7ye")
+region = Rect2(0, 0, 10, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52ij6"]
+atlas = ExtResource("1_jq7ye")
+region = Rect2(10, 0, 10, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qfbfh"]
+atlas = ExtResource("1_jq7ye")
+region = Rect2(20, 0, 10, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mp8ki"]
+atlas = ExtResource("1_jq7ye")
+region = Rect2(30, 0, 10, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7n2nk"]
+atlas = ExtResource("1_jq7ye")
+region = Rect2(40, 0, 10, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nnkdp"]
+atlas = ExtResource("1_jq7ye")
+region = Rect2(50, 0, 10, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xw02f"]
+atlas = ExtResource("1_jq7ye")
+region = Rect2(60, 0, 10, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t0dps"]
+atlas = ExtResource("1_jq7ye")
+region = Rect2(70, 0, 10, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qtfag"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ckgm1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_52ij6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qfbfh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mp8ki")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7n2nk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nnkdp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xw02f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t0dps")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4fb4l"]
+size = Vector2(122, 29)
+
+[node name="squid_bullet" type="Area2D" unique_id=131468841]
+script = ExtResource("1_ckgm1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2003109146]
+position = Vector2(51, 7.0000005)
+scale = Vector2(11.199999, 2.75)
+sprite_frames = SubResource("SpriteFrames_qtfag")
+frame_progress = 0.680154
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=993742756]
+position = Vector2(49, 5)
+shape = SubResource("RectangleShape2D_4fb4l")

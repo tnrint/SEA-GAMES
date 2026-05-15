@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3yer8wfx22yv"
-path="res://.godot/imported/JellyFish.png-a68a6e317b7732296482b8964acdf8d5.ctex"
+uid="uid://05w0a5ts17w5"
+path="res://.godot/imported/Bubble - 8x8.png-689770b9d0f03465b21246c5ae068f80.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/SpearFishing Assets Pack/SpearFishing Assets Pack/Sprites/JellyFish - 32x16/JellyFish.png"
-dest_files=["res://.godot/imported/JellyFish.png-a68a6e317b7732296482b8964acdf8d5.ctex"]
+source_file="res://Assets_Characters/Assets_Characters/Bubble - 8x8.png"
+dest_files=["res://.godot/imported/Bubble - 8x8.png-689770b9d0f03465b21246c5ae068f80.ctex"]
 
 [params]
 

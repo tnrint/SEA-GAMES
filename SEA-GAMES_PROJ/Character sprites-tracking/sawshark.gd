@@ -106,3 +106,37 @@ func _on_cooldown_finished():
 	is_ready = true
 	if targets_in_range.size() > 0:
 		start_attack()
+# --- UNIVERSAL BUFF SYSTEM ---
+var base_fire_rate: float = 0.0
+var currently_buffed: bool = false
+
+func add_buff(multiplier: float):
+	if currently_buffed: return
+	currently_buffed = true
+	
+	# 1. Show the visual effect
+	# Assumes you added an AnimatedSprite2D named "BuffVisual" to the fish
+	if has_node("BuffVisual"):
+		get_node("BuffVisual").show()
+		if get_node("BuffVisual").sprite_frames.has_animation("sparkle"):
+			get_node("BuffVisual").play("sparkle")
+	
+	# 2. Speed up the firing Timer
+	var timer = get_node_or_null("Timer")
+	if timer:
+		base_fire_rate = timer.wait_time
+		timer.wait_time = base_fire_rate / multiplier
+
+func remove_buff():
+	if not currently_buffed: return
+	currently_buffed = false
+	
+	# 1. Hide the visual effect
+	if has_node("BuffVisual"):
+		get_node("BuffVisual").hide()
+		get_node("BuffVisual").stop()
+	
+	# 2. Reset the Timer
+	var timer = get_node_or_null("Timer")
+	if timer and base_fire_rate > 0:
+		timer.wait_time = base_fire_rate

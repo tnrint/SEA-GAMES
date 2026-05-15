@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d8qd4qwb3y6j"
-path="res://.godot/imported/Red.png-550128f1054b534d222052a2c0089b22.ctex"
+uid="uid://t18bo5qubsm6"
+path="res://.godot/imported/SeaAngler.png-1725f7f56124e70373161576e8519af5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/SpearFishing Assets Pack/SpearFishing Assets Pack/Sprites/Fish3 - 32x16/Red.png"
-dest_files=["res://.godot/imported/Red.png-550128f1054b534d222052a2c0089b22.ctex"]
+source_file="res://Assets_Characters/Assets_Characters/SeaAngler.png"
+dest_files=["res://.godot/imported/SeaAngler.png-1725f7f56124e70373161576e8519af5.ctex"]
 
 [params]
 

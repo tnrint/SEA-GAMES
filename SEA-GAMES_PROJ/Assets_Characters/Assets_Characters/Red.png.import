@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2yh350blafr7"
-path="res://.godot/imported/Squid - 32x16.png-69f16e4bad4942b424f578bb94115ae2.ctex"
+uid="uid://d8qd4qwb3y6j"
+path="res://.godot/imported/Red.png-51f5d7aab9feb2aab82892000df3383e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/SpearFishing Assets Pack/SpearFishing Assets Pack/Sprites/Squid - 32x16.png"
-dest_files=["res://.godot/imported/Squid - 32x16.png-69f16e4bad4942b424f578bb94115ae2.ctex"]
+source_file="res://Assets_Characters/Assets_Characters/Red.png"
+dest_files=["res://.godot/imported/Red.png-51f5d7aab9feb2aab82892000df3383e.ctex"]
 
 [params]
 

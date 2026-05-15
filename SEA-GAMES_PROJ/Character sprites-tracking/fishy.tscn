@@ -200,4 +200,4 @@ shape = SubResource("CircleShape2D_rsb1f")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1638075860]
 sprite_frames = SubResource("SpriteFrames_f1pi8")
 animation = &"Idle"
-frame_progress = 0.045438733
+frame_progress = 0.37364265

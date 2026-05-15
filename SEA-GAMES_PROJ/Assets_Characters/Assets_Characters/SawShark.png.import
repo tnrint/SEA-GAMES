@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://05w0a5ts17w5"
-path="res://.godot/imported/Bubble - 8x8.png-2f22120ecde130e2c682768df11d7aff.ctex"
+uid="uid://bk47exqh3kmjk"
+path="res://.godot/imported/SawShark.png-c6e02768aec3fb46241aedb218be8563.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/SpearFishing Assets Pack/SpearFishing Assets Pack/Sprites/Bubble - 8x8.png"
-dest_files=["res://.godot/imported/Bubble - 8x8.png-2f22120ecde130e2c682768df11d7aff.ctex"]
+source_file="res://Assets_Characters/Assets_Characters/SawShark.png"
+dest_files=["res://.godot/imported/SawShark.png-c6e02768aec3fb46241aedb218be8563.ctex"]
 
 [params]
 

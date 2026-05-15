@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://c2lod4uyqlhn4"]
+
+[ext_resource type="Script" uid="uid://da81j0htcwpi6" path="res://Character sprites-tracking/red_bullet.gd" id="1_jvfw6"]
+[ext_resource type="Texture2D" uid="uid://05w0a5ts17w5" path="res://Assets_Characters/Assets_Characters/Bubble - 8x8.png" id="2_kk1wh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_75oxt"]
+radius = 14.035668
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_75oxt"]
+atlas = ExtResource("2_kk1wh")
+region = Rect2(20, 0, 10, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ywmh"]
+atlas = ExtResource("2_kk1wh")
+region = Rect2(30, 0, 10, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_851ia"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_75oxt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ywmh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="RedBullet" type="Area2D" unique_id=1390433996]
+script = ExtResource("1_jvfw6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1946063374]
+position = Vector2(-1, 0)
+shape = SubResource("CircleShape2D_75oxt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=908148280]
+scale = Vector2(1.725, 2.5000005)
+sprite_frames = SubResource("SpriteFrames_851ia")
+frame_progress = 0.09189129
