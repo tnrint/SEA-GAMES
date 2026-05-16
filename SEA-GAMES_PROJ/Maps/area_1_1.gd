@@ -1,10 +1,5 @@
 extends Node2D
 
-<<<<<<< HEAD
-var enemy_scene = preload("res://Enemies/trash_1.tscn")
-var character_scene = preload("res://UI/Character.tscn")
-var available_characters: Array[CharacterData] = []
-=======
 # =====================================================
 # LEVEL CONFIG
 # =====================================================
@@ -14,9 +9,8 @@ var level_id := 1
 # CHARACTER SYSTEM
 # =====================================================
 var character_scene = preload("res://UI/Character.tscn")
->>>>>>> e03940100659d68b43edbdd97e3e9ebb5206e01c
 var selected_character: CharacterData = null
-var is_placing: bool = false  # 👈 add this
+var is_placing: bool = false
 
 # =====================================================
 # ENEMY SYSTEM
@@ -35,42 +29,44 @@ var level_finished := false
 # READY
 # =====================================================
 func _ready() -> void:
-<<<<<<< HEAD
-=======
 	print("LEVEL STARTED: ", level_id)
-
-	# HUD setup
->>>>>>> e03940100659d68b43edbdd97e3e9ebb5206e01c
+	
+	# Setup HUD with selected characters from manager
 	level_hud.character_chosen.connect(_on_character_chosen)
 	level_hud.setup_with_selected_characters(
 		SelectedCharactersManager.selected_characters
 	)
-
-	# TEMP TEST ENEMY SPAWN
+	
+	# TEMP: Test enemy spawn
 	spawn_enemy(preload("res://Enemies/bottle_trash.tscn"), Vector2(500, 300))
 
-
 # =====================================================
-# INPUT (CHARACTER PLACEMENT)
+# INPUT - CHARACTER PLACEMENT
 # =====================================================
 func _unhandled_input(event):
-	if event is InputEventMouseButton \
-	and event.button_index == MOUSE_BUTTON_LEFT \
-	and event.pressed:
-		if is_placing and selected_character != null:  # 👈 only place when in placing mode
-			try_spawn_character(get_global_mouse_position())
-		elif event.button_index == MOUSE_BUTTON_RIGHT:  # 👈 right click cancels placement
+	if event is InputEventMouseButton and event.pressed:
+		if event.button_index == MOUSE_BUTTON_LEFT:
+			if is_placing and selected_character != null:
+				try_spawn_character(get_global_mouse_position())
+				
+		elif event.button_index == MOUSE_BUTTON_RIGHT:
 			cancel_placement()
 
+# =====================================================
+# CHARACTER PLACEMENT LOGIC
+# =====================================================
 func try_spawn_character(pos: Vector2) -> void:
 	if selected_character == null:
 		print("No character selected for placement!")
 		return
-	if !CurrencyManager.spend_currency(selected_character.cost):
+		
+	if not CurrencyManager.spend_currency(selected_character.cost):
 		print("Not enough currency!")
 		return
+	
 	spawn_character(pos, selected_character)
-	cancel_placement()  # 👈 stop placing after spawn
+	cancel_placement()  # Stop placing after one spawn
+
 
 func spawn_character(pos: Vector2, char_data: CharacterData) -> void:
 	var character = character_scene.instantiate()
@@ -78,20 +74,17 @@ func spawn_character(pos: Vector2, char_data: CharacterData) -> void:
 	character.global_position = pos
 	character.setup(char_data)
 
+
 func _on_character_chosen(char_data: CharacterData) -> void:
 	selected_character = char_data
-	is_placing = true  # 👈 start placing mode when card is clicked
+	is_placing = true
 	print("Now placing: ", char_data.character_name)
+
 
 func cancel_placement() -> void:
 	selected_character = null
-	is_placing = false  # 👈 exit placing mode
+	is_placing = false
 	print("Placement cancelled")
-
-func _on_character_chosen(char_data: CharacterData) -> void:
-	selected_character = char_data
-	print("Now placing:", char_data.character_name)
-
 
 # =====================================================
 # ENEMY SYSTEM
@@ -99,24 +92,20 @@ func _on_character_chosen(char_data: CharacterData) -> void:
 func spawn_enemy(enemy_scene: PackedScene, pos: Vector2) -> void:
 	var enemy = enemy_scene.instantiate()
 	add_child(enemy)
-
 	enemies_alive += 1
-
-	# IMPORTANT: give enemy path
+	
 	enemy.setup(path_follow)
-
-	# connect death signal
+	
 	if enemy.has_signal("died"):
 		enemy.died.connect(_on_enemy_died)
-
-	print("Enemy spawned. Total:", enemies_alive)
+	
+	print("Enemy spawned. Total alive: ", enemies_alive)
 
 
 func _on_enemy_died() -> void:
 	enemies_alive -= 1
-	print("Enemy died. Remaining:", enemies_alive)
+	print("Enemy died. Remaining: ", enemies_alive)
 	check_win_condition()
-
 
 # =====================================================
 # WIN CONDITION
@@ -124,16 +113,18 @@ func _on_enemy_died() -> void:
 func check_win_condition() -> void:
 	if level_finished:
 		return
-
 	if enemies_alive <= 0:
-		print("LEVEL COMPLETE!")
+		print("🎉 LEVEL COMPLETE!")
 		show_level_complete()
+
 
 func show_level_complete():
 	level_finished = true
 	level_complete_ui.visible = true
-	
 
+
+# =====================================================
+# BUTTON - NEXT / CONTINUE
+# =====================================================
 func _on_button_pressed() -> void:
 	GameManager.level_completed(level_id)
->>>>>>> e03940100659d68b43edbdd97e3e9ebb5206e01c
