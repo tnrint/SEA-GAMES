@@ -1,7 +1,9 @@
 [gd_scene format=4 uid="uid://crxpn7wobpotk"]
 
+[ext_resource type="Script" uid="uid://chppp4bx8ao7c" path="res://Maps/area_3_3.gd" id="1_f7luy"]
 [ext_resource type="TileSet" uid="uid://b4233cuotsuf8" path="res://Tilemaps/TilseSet1.tres" id="1_g607c"]
 [ext_resource type="PackedScene" uid="uid://dwruxkwn6takp" path="res://UI/LevelHUD.tscn" id="1_moswk"]
+[ext_resource type="FontFile" uid="uid://cpwxixdj8xhmk" path="res://Assets/Font/Bungee-Regular.ttf" id="4_dj3r4"]
 
 [sub_resource type="Curve2D" id="Curve2D_g607c"]
 _data = {
@@ -34,6 +36,7 @@ _data = {
 point_count = 11
 
 [node name="area_3_3" type="Node2D" unique_id=2042328366]
+script = ExtResource("1_f7luy")
 metadata/area = 3
 
 [node name="LevelHUD" parent="." unique_id=68151151 instance=ExtResource("1_moswk")]
@@ -66,14 +69,85 @@ tile_set = ExtResource("1_g607c")
 [node name="PathU1" type="Path2D" parent="." unique_id=165751287]
 curve = SubResource("Curve2D_g607c")
 
+[node name="PathFollow2D" type="PathFollow2D" parent="PathU1" unique_id=1566464745]
+position = Vector2(64, -4)
+rotation = 0.91580147
+
 [node name="PathU2" type="Path2D" parent="." unique_id=1377909808]
 curve = SubResource("Curve2D_moswk")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="PathU2" unique_id=356328718]
+position = Vector2(272, 7)
+rotation = 2.2413177
 
 [node name="PathU3" type="Path2D" parent="." unique_id=1687204578]
 curve = SubResource("Curve2D_2ai14")
 
+[node name="PathFollow2D" type="PathFollow2D" parent="PathU3" unique_id=1461295640]
+position = Vector2(375, -4)
+rotation = 1.5883384
+
 [node name="PathU4" type="Path2D" parent="." unique_id=643555495]
 curve = SubResource("Curve2D_f7luy")
 
+[node name="PathFollow2D" type="PathFollow2D" parent="PathU4" unique_id=1837624535]
+position = Vector2(537, 0)
+rotation = 1.5707964
+
 [node name="PathL" type="Path2D" parent="." unique_id=121302103]
 curve = SubResource("Curve2D_dj3r4")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="PathL" unique_id=1163852697]
+position = Vector2(1, 418)
+rotation = 0.57907426
+
+[node name="LevelCompletePanel" type="Control" parent="." unique_id=1600356214]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 209.0
+offset_top = 145.0
+offset_right = 249.0
+offset_bottom = 185.0
+
+[node name="Label" type="Label" parent="LevelCompletePanel" unique_id=1290431132]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Level Complete"
+
+[node name="Button" type="Button" parent="LevelCompletePanel" unique_id=1211116199]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 26.0
+offset_right = 78.0
+offset_bottom = 57.0
+text = "Next"
+
+[node name="LevelFailPanel" type="Control" parent="." unique_id=630139797]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="LevelFailPanel" unique_id=1975161785]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 144.0
+offset_right = 201.0
+offset_bottom = 167.0
+theme_override_fonts/font = ExtResource("4_dj3r4")
+text = "Level Fail"
+
+[node name="Button" type="Button" parent="LevelFailPanel" unique_id=307628595]
+layout_mode = 0
+offset_left = 117.0
+offset_top = 169.0
+offset_right = 181.0
+offset_bottom = 200.0
+theme_override_fonts/font = ExtResource("4_dj3r4")
+text = "Retry"
+
+[connection signal="pressed" from="LevelCompletePanel/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="LevelFailPanel/Button" to="." method="retry_pressed"]

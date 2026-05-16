@@ -15,15 +15,15 @@ var upgrade_data = {
 	},
 	"Jellyfish": {  
 		"damage":    { "cost": 150,  "amount": 30  },
-		"fire_rate": { "cost": 300, "amount": -0.2 },
+		"pulse_rate": { "cost": 300, "amount": -0.5 },
 	},
 	"Sawshark": {  
 		"damage":    { "cost": 150,  "amount": 30  },
-		"attack_duration": { "cost": 300, "amount": 1.0 },
+		"attack_duration": { "cost": 300, "amount": -1.0 },
 	},
-	"SwordFish": {  
+	"Swordfish": {  
 		"damage":    { "cost": 300,  "amount": 50  },
-		"fire_rate": { "cost": 300, "amount": -0.2 },
+		"charge_speed": { "cost": 300, "amount": 100.0 },
 	},
 	"Red Fish": {  
 		"damage":    { "cost": 400,  "amount": 20  },
@@ -96,4 +96,35 @@ func upgrade_sawshark(tower) -> bool:
 	tower.attack_duration += data["attack_duration"]["amount"]
 	upgraded_towers[get_tower_id(tower)] = true
 	print("Sawshark upgraded!")
+	return true
+
+func upgrade_jellyfish(tower) -> bool:
+	if is_upgraded(tower):
+		print("Already upgraded!")
+		return false
+	var data = upgrade_data["Jellyfish"]
+	var total = data["damage"]["cost"] + data["pulse_rate"]["cost"]
+	if not CurrencyManager.spend_currency(total):
+		print("Not enough currency!")
+		return false
+	tower.damage     += data["damage"]["amount"]
+	tower.pulse_rate += data["pulse_rate"]["amount"]
+	tower.pulse_timer.wait_time = tower.pulse_rate  
+	upgraded_towers[get_tower_id(tower)] = true
+	print("Jellyfish upgraded!")
+	return true
+
+func upgrade_swordfish(tower) -> bool:
+	if is_upgraded(tower):
+		print("Already upgraded!")
+		return false
+	var data = upgrade_data["Swordfish"]
+	var total = data["damage"]["cost"] + data["charge_speed"]["cost"]
+	if not CurrencyManager.spend_currency(total):
+		print("Not enough currency!")
+		return false
+	tower.damage_amount  += data["damage"]["amount"]
+	tower.charge_speed   += data["charge_speed"]["amount"]
+	upgraded_towers[get_tower_id(tower)] = true
+	print("Swordfish upgraded!")
 	return true

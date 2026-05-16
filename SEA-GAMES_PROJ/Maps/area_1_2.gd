@@ -183,3 +183,7 @@ func cancel_placement() -> void:
 
 func _on_button_pressed() -> void:
 	GameManager.level_completed(level_id)
+
+
+func retry_pressed() -> void:
+	get_tree().change_scene_to_file("res://Maps/area_1_2.tscn")

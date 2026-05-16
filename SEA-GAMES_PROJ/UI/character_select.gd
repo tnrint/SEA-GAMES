@@ -9,11 +9,11 @@ var card_scene = preload("res://UI/CharacterCard.tscn")
 var all_characters: Array[CharacterData] = [
 	CharacterData.new("Fish",       50,  preload("res://UI/fish_icon.tres"),       "res://character sprites-tracking/fishy.tscn"),
 	CharacterData.new("Ice Fish",   125, preload("res://UI/icefish_icon.tres"),   "res://character sprites-tracking/ice_fishy.tscn"),
-	CharacterData.new("Sword Fish", 75,  preload("res://UI/swordfish_icon.tres"),  "res://character sprites-tracking/Swordfish.tscn"),
+	CharacterData.new("Swordfish", 75,  preload("res://UI/swordfish_icon.tres"),  "res://character sprites-tracking/Swordfish.tscn"),
 	CharacterData.new("Jellyfish",  200, preload("res://UI/jellyfish_icon.tres"), "res://Character sprites-tracking/jellyfish.tscn"),
-	CharacterData.new("Saw Shark",   150, preload("res://UI/sawfish_icon.tres"),   "res://Character sprites-tracking/sawshark.tscn"),
-	CharacterData.new("Angler Fish",   175, preload("res://UI/anglerfish_icon.tres"), "res://Character sprites-tracking/angler_fish.tscn"  ),
-	CharacterData.new("Shotgun Fish",   150, preload("res://UI/shotgunfish_icon.tres"), "res://Character sprites-tracking/red_fish.tscn"  ),
+	CharacterData.new("SawShark",   150, preload("res://UI/sawfish_icon.tres"),   "res://Character sprites-tracking/sawshark.tscn"),
+	CharacterData.new("Angler",   175, preload("res://UI/anglerfish_icon.tres"), "res://Character sprites-tracking/angler_fish.tscn"  ),
+	CharacterData.new("Red Fish",   150, preload("res://UI/shotgunfish_icon.tres"), "res://Character sprites-tracking/red_fish.tscn"  ),
 	CharacterData.new("Shark",   200, preload("res://UI/shark_icon.tres"), "res://Character sprites-tracking/Sharky.tscn"  ),
 	CharacterData.new("Squid",   150, preload("res://UI/squid_icon.tres"), "res://Character sprites-tracking/squid.tscn"  ),
 ]

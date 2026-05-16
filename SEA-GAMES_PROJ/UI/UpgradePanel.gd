@@ -58,7 +58,31 @@ func refresh() -> void:
 			firerate_value.text = "Buff Range: +%d" % data["buff_range"]["amount"]
 			upgrade_btn.text     = "Upgrade all  —  %d pts" % total_cost
 			upgrade_btn.disabled = CurrencyManager.get_currency() < total_cost
-
+	elif tower_name == "Jellyfish":
+		var data = UpgradeManager.upgrade_data["Jellyfish"]
+		var total_cost = data["damage"]["cost"] + data["pulse_rate"]["cost"]
+		if already_upgraded:
+			damage_value.text   = "Damage: %d (Maxed)" % current_tower.damage
+			firerate_value.text = "Pulse Rate: %.1fs (Maxed)" % current_tower.pulse_rate
+			upgrade_btn.text     = "Maxed out"
+			upgrade_btn.disabled = true
+		else:
+			damage_value.text   = "Damage: %d → %d" % [current_tower.damage, current_tower.damage + data["damage"]["amount"]]
+			firerate_value.text = "Pulse Rate: %.1fs → %.1fs" % [current_tower.pulse_rate, current_tower.pulse_rate + data["pulse_rate"]["amount"]]
+			upgrade_btn.text     = "Upgrade all  —  %d pts" % total_cost
+			upgrade_btn.disabled = CurrencyManager.get_currency() < total_cost
+	elif tower_name == "Swordfish":
+		var data = UpgradeManager.upgrade_data["Swordfish"]
+		var total_cost = data["damage"]["cost"] + data["charge_speed"]["cost"]
+		if already_upgraded:
+			damage_value.text   = "Damage: %d (Maxed)" % current_tower.damage_amount
+			firerate_value.text = "Charge Speed: %.0f (Maxed)" % current_tower.charge_speed
+			upgrade_btn.text     = "Maxed out"
+			upgrade_btn.disabled = true
+		else:
+			damage_value.text   = "Damage: %d → %d" % [current_tower.damage_amount, current_tower.damage_amount + data["damage"]["amount"]]
+			firerate_value.text = "Charge Speed: %.0f → %.0f" % [current_tower.charge_speed, current_tower.charge_speed + data["charge_speed"]["amount"]]
+			upgrade_btn.disabled = CurrencyManager.get_currency() < total_cost
 	else:
 		var data = UpgradeManager.upgrade_data[tower_name]
 		var total_cost = UpgradeManager.get_total_cost(tower_name)
@@ -82,6 +106,12 @@ func _on_upgrade_pressed() -> void:
 			refresh()
 	elif tower_name == "Angler":
 		if UpgradeManager.upgrade_angler(current_tower):
+			refresh()
+	elif tower_name == "Jellyfish":
+		if UpgradeManager.upgrade_jellyfish(current_tower):
+			refresh()
+	elif tower_name == "Swordfish":
+		if UpgradeManager.upgrade_swordfish(current_tower):
 			refresh()
 	else:
 		if UpgradeManager.upgrade_all(current_tower, tower_name):

@@ -1,12 +1,14 @@
 extends Area2D
 
 signal died
+signal reached_end  # ← NEW: Emitted when enemy reaches the end of the path
 
 # --- Tiers ---
 const TIER_2_HP: int = 60
 const TIER_1_HP: int = 30
 
 @export var max_hp: int = TIER_2_HP
+@export var speed: float = 100.0   # ← Made export for easy tweaking
 
 var current_hp: int
 var current_tier: int = 2
@@ -27,12 +29,12 @@ func _process(delta: float):
 	if path_follow == null:
 		return
 	
-	path_follow.progress += 100 * speed_multiplier * delta
-	global_position = path_follow.global_position  # Keep position synced
+	path_follow.progress += speed * speed_multiplier * delta
+	global_position = path_follow.global_position
 	
-	# Optional: Remove if it reaches the end
+	# Check if reached the end of the path
 	if path_follow.progress_ratio >= 0.99:
-		print("Trash Bag reached end")
+		reached_end.emit()
 		queue_free()
 
 func apply_slow(multiplier: float, duration: float):

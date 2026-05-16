@@ -9,6 +9,12 @@ var total_waves := 4
 var is_wave_transitioning := false
 
 # =====================================================
+# PLAYER HP SYSTEM (ADDED)
+# =====================================================
+var max_hp: int = 100
+var current_hp: int = 100
+
+# =====================================================
 # CHARACTER SYSTEM
 # =====================================================
 var character_scene = preload("res://UI/Character.tscn")
@@ -23,10 +29,10 @@ var level_finished := false
 
 # Wave Configuration (4 Waves, 20 enemies each)
 var wave_configs = [
-	{ "count": 20, "enemy_scene": preload("res://Enemies/bottle_trash.tscn") },      # Wave 1
-	{ "count": 20, "enemy_scene": preload("res://Enemies/trashbag_trash.tscn") },   # Wave 2
-	{ "count": 20, "enemy_scene": preload("res://Enemies/trash_1.tscn") },          # Wave 3
-	{ "count": 20, "enemy_scene": preload("res://Enemies/trashbag_trash.tscn") }    # Wave 4
+	{ "count": 20, "enemy_scene": preload("res://Enemies/bottle_trash.tscn") },
+	{ "count": 20, "enemy_scene": preload("res://Enemies/trashbag_trash.tscn") },
+	{ "count": 20, "enemy_scene": preload("res://Enemies/trash_1.tscn") },
+	{ "count": 20, "enemy_scene": preload("res://Enemies/trashbag_trash.tscn") }
 ]
 
 # =====================================================
@@ -35,6 +41,10 @@ var wave_configs = [
 @onready var level_hud = $LevelHUD
 @onready var level_complete_ui = $LevelCompletePanel
 
+# ADDED UI REFERENCES
+@onready var hp_label: Label = $LevelHUD/HPLabel
+@onready var game_over_ui = $LevelFailPanel
+
 var all_paths: Array[Path2D] = []
 
 # =====================================================
@@ -42,6 +52,9 @@ var all_paths: Array[Path2D] = []
 # =====================================================
 func _ready() -> void:
 	print("LEVEL STARTED: Area 2-1 (Level ", level_id, ")")
+	
+	current_hp = max_hp
+	update_hp_ui()
 	
 	_find_all_paths()
 	
@@ -61,10 +74,39 @@ func _find_all_paths() -> void:
 
 
 # =====================================================
+# HP SYSTEM (ADDED)
+# =====================================================
+func update_hp_ui() -> void:
+	if hp_label:
+		hp_label.text = "HP: " + str(current_hp) + "/" + str(max_hp)
+
+
+func take_damage(amount: int = 10) -> void:
+	current_hp -= amount
+	update_hp_ui()
+	print("Player took damage! HP left:", current_hp)
+	
+	if current_hp <= 0:
+		game_over()
+
+
+func game_over() -> void:
+	print("💀 GAME OVER - Player HP reached 0")
+	
+	is_wave_transitioning = true
+	level_finished = true
+	
+	if game_over_ui:
+		game_over_ui.visible = true
+	else:
+		push_error("GameOverPanel not found! Add LevelFailPanel to scene.")
+
+
+# =====================================================
 # WAVE SYSTEM
 # =====================================================
 func start_next_wave() -> void:
-	if is_wave_transitioning:
+	if is_wave_transitioning or current_hp <= 0:
 		return
 	
 	current_wave += 1
@@ -90,7 +132,6 @@ func spawn_single_enemy(enemy_scene: PackedScene) -> void:
 	if not enemy_scene or all_paths.is_empty():
 		return
 	
-	# Random path every spawn
 	var random_path = all_paths[randi() % all_paths.size()]
 	
 	var path_follow = PathFollow2D.new()
@@ -106,21 +147,29 @@ func spawn_single_enemy(enemy_scene: PackedScene) -> void:
 	
 	if enemy.has_signal("died"):
 		enemy.died.connect(_on_enemy_died.bind(path_follow))
+	
+	if enemy.has_signal("reached_end"):
+		enemy.reached_end.connect(_on_enemy_reached_end)
 
 
 func _on_enemy_died(path_follow: PathFollow2D) -> void:
 	enemies_alive -= 1
+	
 	if path_follow and is_instance_valid(path_follow):
 		path_follow.queue_free()
 	
 	check_win_condition()
 
 
+func _on_enemy_reached_end() -> void:
+	take_damage(10)
+
+
 # =====================================================
 # WIN CONDITION
 # =====================================================
 func check_win_condition() -> void:
-	if level_finished or is_wave_transitioning:
+	if level_finished or is_wave_transitioning or current_hp <= 0:
 		return
 	
 	if enemies_alive <= 0 and current_wave >= total_waves:
@@ -149,10 +198,13 @@ func _unhandled_input(event):
 
 
 func try_spawn_character(pos: Vector2) -> void:
-	if selected_character == null: return
+	if selected_character == null:
+		return
+	
 	if not CurrencyManager.spend_currency(selected_character.cost):
 		print("Not enough currency!")
 		return
+	
 	spawn_character(pos, selected_character)
 	cancel_placement()
 
@@ -176,5 +228,12 @@ func cancel_placement() -> void:
 	print("Placement cancelled")
 
 
+# =====================================================
+# BUTTONS
+# =====================================================
 func _on_button_pressed() -> void:
 	GameManager.level_completed(level_id)
+
+
+func retry_pressed() -> void:
+	get_tree().change_scene_to_file("res://Maps/area_2_1.tscn")

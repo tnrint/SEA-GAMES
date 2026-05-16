@@ -3,6 +3,7 @@
 [ext_resource type="TileSet" uid="uid://b4233cuotsuf8" path="res://Tilemaps/TilseSet1.tres" id="1_5ev2j"]
 [ext_resource type="Script" uid="uid://766vlc3bpt1u" path="res://Maps/area_1_2.gd" id="1_ed08w"]
 [ext_resource type="PackedScene" uid="uid://dwruxkwn6takp" path="res://UI/LevelHUD.tscn" id="2_h2vey"]
+[ext_resource type="FontFile" uid="uid://cpwxixdj8xhmk" path="res://Assets/Font/Bungee-Regular.ttf" id="4_6ugle"]
 
 [sub_resource type="Curve2D" id="Curve2D_5ev2j"]
 _data = {
@@ -136,4 +137,30 @@ offset_right = 78.0
 offset_bottom = 57.0
 text = "Next"
 
-[connection signal="pressed" from="LevelCompletePanel/Button" to="." method="_on_button_pressed"]
+[node name="LevelFailPanel" type="Control" parent="." unique_id=759145242]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="LevelFailPanel" unique_id=1430343391]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 144.0
+offset_right = 201.0
+offset_bottom = 167.0
+theme_override_fonts/font = ExtResource("4_6ugle")
+text = "Level Fail"
+
+[node name="Button" type="Button" parent="LevelFailPanel" unique_id=1373142720]
+layout_mode = 0
+offset_left = 117.0
+offset_top = 169.0
+offset_right = 181.0
+offset_bottom = 200.0
+theme_override_fonts/font = ExtResource("4_6ugle")
+text = "Retry"
+
+[connection signal="pressed" from="LevelCompletePanel/Button" to="." method="retry_pressed"]
+[connection signal="pressed" from="LevelFailPanel/Button" to="." method="retry_pressed"]
