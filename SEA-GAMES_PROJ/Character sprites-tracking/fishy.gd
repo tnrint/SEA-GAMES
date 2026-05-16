@@ -3,6 +3,9 @@ extends Node2D
 @export var damage: int = 25
 @export var fire_rate: float = 0.5
 @export var bubble_scene: PackedScene
+@export var tower_name: String = "Fish"
+
+
 
 var enemies_in_range: Array = []
 var can_shoot: bool = true
@@ -84,3 +87,14 @@ func remove_buff():
 	
 	print("<<< [BUFF EXPIRED] ", name, " reset.")
 	fire_rate = original_fire_rate
+	
+func _unhandled_input(event) -> void:
+	if event is InputEventMouseButton \
+	and event.button_index == MOUSE_BUTTON_LEFT \
+	and event.pressed:
+		var mouse_pos = get_global_mouse_position()
+		var distance = global_position.distance_to(mouse_pos)
+		if distance < 40:
+			print("Tower clicked! Opening panel...")
+			get_node("/root/UpgradePanel").show_panel(self, tower_name)
+			get_viewport().set_input_as_handled()

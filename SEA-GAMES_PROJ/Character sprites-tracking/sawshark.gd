@@ -1,5 +1,7 @@
 extends Area2D
 
+@export var tower_name: String = "Sawshark"
+
 # --- Configuration ---
 @export var damage: int = 30
 @export var attack_duration: float = 2.0
@@ -140,3 +142,13 @@ func remove_buff():
 	var timer = get_node_or_null("Timer")
 	if timer and base_fire_rate > 0:
 		timer.wait_time = base_fire_rate
+
+func _unhandled_input(event) -> void:
+	if event is InputEventMouseButton \
+	and event.button_index == MOUSE_BUTTON_LEFT \
+	and event.pressed:
+		var mouse_pos = get_global_mouse_position()
+		var distance = global_position.distance_to(mouse_pos)
+		if distance < 40:
+			get_node("/root/UpgradePanel").show_panel(self, tower_name)
+			get_viewport().set_input_as_handled()

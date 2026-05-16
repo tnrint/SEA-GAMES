@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var return_speed: float = 200.0
 @export var damage_amount: int = 20
 @export var attack_cooldown: float = 0.6 # Time to wait at home before next hit
+@export var tower_name: String = "Swordfish"
 
 enum { IDLE, CHARGING, RETURNING, COOLDOWN }
 var state = IDLE
@@ -101,3 +102,13 @@ func remove_buff():
 	
 	# Reset speed
 	charge_speed = original_charge_speed
+
+func _unhandled_input(event) -> void:
+	if event is InputEventMouseButton \
+	and event.button_index == MOUSE_BUTTON_LEFT \
+	and event.pressed:
+		var mouse_pos = get_global_mouse_position()
+		var distance = global_position.distance_to(mouse_pos)
+		if distance < 40:
+			get_node("/root/UpgradePanel").show_panel(self, tower_name)
+			get_viewport().set_input_as_handled()

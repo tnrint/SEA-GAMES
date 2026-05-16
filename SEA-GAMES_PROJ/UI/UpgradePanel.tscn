@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://b6kdhckfwp1f2"]
+
+[ext_resource type="Script" uid="uid://cq4ws6j5joidc" path="res://UI/UpgradePanel.gd" id="1_rv2bh"]
+
+[node name="Control" type="CanvasLayer" unique_id=399936932]
+script = ExtResource("1_rv2bh")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1161546854]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -159.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=1926766944]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=2014934493]
+layout_mode = 2
+
+[node name="UpgradeButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=921857143]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1201774946]
+layout_mode = 2
+
+[node name="TowerLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=672606658]
+layout_mode = 2
+
+[node name="CloseButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=381997739]
+layout_mode = 2
+text = "X"
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1263436500]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=440400457]
+layout_mode = 2
+
+[node name="DamageLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=2108204706]
+layout_mode = 2
+
+[node name="DamageValue" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=5434375]
+layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=190830141]
+layout_mode = 2
+
+[node name="FireRateLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=525114085]
+layout_mode = 2
+
+[node name="FireRateValue" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=133335799]
+layout_mode = 2
+
+[node name="HSeparator2" type="HSeparator" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=61771651]
+layout_mode = 2
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=335278143]
+layout_mode = 2
+
+[node name="PointsLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer5" unique_id=1591879540]
+layout_mode = 2
+
+[node name="PointsValue" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer5" unique_id=70749761]
+layout_mode = 2

@@ -3,6 +3,7 @@ extends Node2D
 @export var damage: int = 25
 @export var fire_rate: float = 0.5
 @export var bubble_scene: PackedScene  # assign BubbleProjectile.tscn in Inspector
+@export var tower_name: String = "Ice Fish"
 
 var enemies_in_range: Array = []
 var can_shoot: bool = true
@@ -56,3 +57,13 @@ func shoot(target: Area2D):
 
 	if $AnimatedSprite2D.sprite_frames.has_animation("Idle"):
 		$AnimatedSprite2D.play("Idle")
+		
+func _unhandled_input(event) -> void:
+	if event is InputEventMouseButton \
+	and event.button_index == MOUSE_BUTTON_LEFT \
+	and event.pressed:
+		var mouse_pos = get_global_mouse_position()
+		var distance = global_position.distance_to(mouse_pos)
+		if distance < 40: 
+			get_node("/root/UpgradePanel").show_panel(self, tower_name)
+			get_viewport().set_input_as_handled()

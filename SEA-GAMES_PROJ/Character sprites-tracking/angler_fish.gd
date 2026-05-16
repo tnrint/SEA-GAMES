@@ -2,6 +2,7 @@ extends Node2D
 
 @export_group("Buff Settings")
 @export var speed_multiplier: float = 1.5 
+@export var tower_name: String = "Angler"
 
 @onready var buff_range_area = $BuffRange
 @onready var anim = $AnimatedSprite2D
@@ -41,3 +42,13 @@ func _on_area_exited(area: Area2D):
 		print("<<< [BUFF EXPIRED] Target: ", fish.name, " | Reset to Normal")
 		
 		fish.remove_buff()
+
+func _unhandled_input(event) -> void:
+	if event is InputEventMouseButton \
+	and event.button_index == MOUSE_BUTTON_LEFT \
+	and event.pressed:
+		var mouse_pos = get_global_mouse_position()
+		var distance = global_position.distance_to(mouse_pos)
+		if distance < 40:
+			get_node("/root/UpgradePanel").show_panel(self, tower_name)
+			get_viewport().set_input_as_handled()

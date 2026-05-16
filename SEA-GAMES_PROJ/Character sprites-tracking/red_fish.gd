@@ -4,6 +4,7 @@ extends Node2D
 @export var damage: int = 15
 @export var fire_rate: float = 0.8
 @export var spread_angle: float = 12.0 # Tight spread for shotgun feel
+@export var tower_name: String = "Red Fish"
 
 @export_group("Setup")
 @export var bullet_scene: PackedScene 
@@ -107,3 +108,13 @@ func remove_buff():
 		buff_visual.hide()
 	
 	fire_rate = original_fire_rate
+
+func _unhandled_input(event) -> void:
+	if event is InputEventMouseButton \
+	and event.button_index == MOUSE_BUTTON_LEFT \
+	and event.pressed:
+		var mouse_pos = get_global_mouse_position()
+		var distance = global_position.distance_to(mouse_pos)
+		if distance < 40:
+			get_node("/root/UpgradePanel").show_panel(self, tower_name)
+			get_viewport().set_input_as_handled()

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c4bw4v4khjfcl" path="res://Character sprites-tracking/fishy.gd" id="1_2q4at"]
 [ext_resource type="PackedScene" uid="uid://dso1vk5wiyu33" path="res://Character sprites-tracking/bubble_shoot.tscn" id="2_wdq4j"]
-[ext_resource type="Texture2D" uid="uid://dry8w2nf7djmu" path="res://Assets_Characters/Assets_Characters/fish.png" id="3_3wvax"]
+[ext_resource type="Texture2D" uid="uid://k0ugkgjword7" path="res://Assets_Characters/Assets_Characters/fish.png" id="3_3wvax"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rsb1f"]
 radius = 102.044106
