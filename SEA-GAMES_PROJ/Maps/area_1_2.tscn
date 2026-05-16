@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://brqx3rblyq6jw"]
 
 [ext_resource type="TileSet" uid="uid://b4233cuotsuf8" path="res://Tilemaps/TilseSet1.tres" id="1_5ev2j"]
+[ext_resource type="Script" uid="uid://766vlc3bpt1u" path="res://Maps/area_1_2.gd" id="1_ed08w"]
 [ext_resource type="PackedScene" uid="uid://dwruxkwn6takp" path="res://UI/LevelHUD.tscn" id="2_h2vey"]
 
 [sub_resource type="Curve2D" id="Curve2D_5ev2j"]
@@ -33,6 +34,8 @@ _data = {
 }
 point_count = 14
 
+[sub_resource type="Curve2D" id="Curve2D_a2eai"]
+
 [sub_resource type="Curve2D" id="Curve2D_j037l"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 675, 443, 0, 0, 0, 0, 453, 441, 0, 0, 0, 0, 453, 249, 0, 0, 0, 0, 379, 248)
@@ -40,6 +43,7 @@ _data = {
 point_count = 4
 
 [node name="Area1-2" type="Node2D" unique_id=493025831]
+script = ExtResource("1_ed08w")
 metadata/area = 1
 
 [node name="LevelHUD" parent="." unique_id=68151151 instance=ExtResource("2_h2vey")]
@@ -72,17 +76,64 @@ tile_set = ExtResource("1_5ev2j")
 [node name="PathLU" type="Path2D" parent="." unique_id=206139446]
 curve = SubResource("Curve2D_5ev2j")
 
+[node name="PathFollow2D" type="PathFollow2D" parent="PathLU" unique_id=785961343]
+position = Vector2(3, 87)
+
 [node name="PathLZ" type="Path2D" parent="." unique_id=898935796]
 curve = SubResource("Curve2D_h2vey")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="PathLZ" unique_id=1840596752]
+position = Vector2(5, 116)
+rotation = -0.2945464
 
 [node name="PathLL" type="Path2D" parent="." unique_id=538817498]
 curve = SubResource("Curve2D_ed08w")
 
+[node name="PathFollow2D" type="PathFollow2D" parent="PathLL" unique_id=1838768219]
+position = Vector2(1, 123)
+rotation = -0.009523522
+
 [node name="PathRU" type="Path2D" parent="." unique_id=1479820459]
 curve = SubResource("Curve2D_6ugle")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="PathRU" unique_id=2009569371]
+position = Vector2(672, 403)
+rotation = 3.136158
 
 [node name="PathRZ" type="Path2D" parent="." unique_id=1130633915]
 curve = SubResource("Curve2D_186dw")
 
+[node name="Path2D" type="Path2D" parent="PathRZ" unique_id=1390397104]
+curve = SubResource("Curve2D_a2eai")
+
 [node name="PathRL" type="Path2D" parent="." unique_id=1341410918]
 curve = SubResource("Curve2D_j037l")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="PathRL" unique_id=1549575865]
+position = Vector2(675, 443)
+rotation = -3.1325839
+
+[node name="LevelCompletePanel" type="Control" parent="." unique_id=1910714611]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 209.0
+offset_top = 145.0
+offset_right = 249.0
+offset_bottom = 185.0
+
+[node name="Label" type="Label" parent="LevelCompletePanel" unique_id=197958866]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Level Complete"
+
+[node name="Button" type="Button" parent="LevelCompletePanel" unique_id=342942434]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 26.0
+offset_right = 78.0
+offset_bottom = 57.0
+text = "Next"
+
+[connection signal="pressed" from="LevelCompletePanel/Button" to="." method="_on_button_pressed"]

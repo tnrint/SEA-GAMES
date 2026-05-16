@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://bkprhw2a1vab"]
 
+[ext_resource type="Script" uid="uid://by33at8hgoyv6" path="res://Maps/area_3_2.gd" id="1_gdf5r"]
 [ext_resource type="TileSet" uid="uid://b4233cuotsuf8" path="res://Tilemaps/TilseSet1.tres" id="1_hmu6d"]
 [ext_resource type="PackedScene" uid="uid://dwruxkwn6takp" path="res://UI/LevelHUD.tscn" id="1_u0pje"]
 
@@ -40,6 +41,7 @@ _data = {
 point_count = 8
 
 [node name="area_3_2" type="Node2D" unique_id=1138401274]
+script = ExtResource("1_gdf5r")
 metadata/area = 3
 
 [node name="LevelHUD" parent="." unique_id=68151151 instance=ExtResource("1_u0pje")]
@@ -72,17 +74,66 @@ tile_set = ExtResource("1_hmu6d")
 [node name="PathL" type="Path2D" parent="." unique_id=1963497921]
 curve = SubResource("Curve2D_hmu6d")
 
+[node name="PathFollow2D" type="PathFollow2D" parent="PathL" unique_id=550594844]
+position = Vector2(-7, 413)
+rotation = 0.5404195
+
 [node name="PathU1" type="Path2D" parent="." unique_id=929010513]
 curve = SubResource("Curve2D_u0pje")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="PathU1" unique_id=770678217]
+position = Vector2(203, -3)
+rotation = 0.5431896
 
 [node name="PathU2" type="Path2D" parent="." unique_id=941038265]
 curve = SubResource("Curve2D_gdf5r")
 
+[node name="PathFollow2D" type="PathFollow2D" parent="PathU2" unique_id=1426336211]
+position = Vector2(253, 0)
+rotation = 2.1962814
+
 [node name="PathD1" type="Path2D" parent="." unique_id=916406506]
 curve = SubResource("Curve2D_ig5cf")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="PathD1" unique_id=1741695679]
+position = Vector2(409, 479)
+rotation = -1.226717
 
 [node name="PathD2" type="Path2D" parent="." unique_id=2046147138]
 curve = SubResource("Curve2D_ke1qi")
 
+[node name="PathFollow2D" type="PathFollow2D" parent="PathD2" unique_id=791918180]
+position = Vector2(450, 475)
+rotation = -2.2730532
+
 [node name="PathR" type="Path2D" parent="." unique_id=619339053]
 curve = SubResource("Curve2D_j86se")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="PathR" unique_id=64695813]
+position = Vector2(645, 14)
+rotation = 2.342862
+
+[node name="LevelCompletePanel" type="Control" parent="." unique_id=143837880]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 209.0
+offset_top = 145.0
+offset_right = 249.0
+offset_bottom = 185.0
+
+[node name="Label" type="Label" parent="LevelCompletePanel" unique_id=103844995]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Level Complete"
+
+[node name="Button" type="Button" parent="LevelCompletePanel" unique_id=38350682]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 26.0
+offset_right = 78.0
+offset_bottom = 57.0
+text = "Next"
+
+[connection signal="pressed" from="LevelCompletePanel/Button" to="." method="_on_button_pressed"]

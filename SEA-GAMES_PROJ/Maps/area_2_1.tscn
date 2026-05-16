@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dwruxkwn6takp" path="res://UI/LevelHUD.tscn" id="1_1hc8y"]
 [ext_resource type="TileSet" uid="uid://b4233cuotsuf8" path="res://Tilemaps/TilseSet1.tres" id="1_mxy6h"]
+[ext_resource type="Script" uid="uid://cvus5a7ipj0gd" path="res://Maps/area_2_1.gd" id="1_o571i"]
 
 [sub_resource type="Curve2D" id="Curve2D_mxy6h"]
 _data = {
@@ -28,6 +29,7 @@ _data = {
 point_count = 6
 
 [node name="area_2_1" type="Node2D" unique_id=1598687079]
+script = ExtResource("1_o571i")
 metadata/area = 2
 
 [node name="LevelHUD" parent="." unique_id=68151151 instance=ExtResource("1_1hc8y")]
@@ -60,11 +62,51 @@ tile_set = ExtResource("1_mxy6h")
 [node name="PathUD" type="Path2D" parent="." unique_id=518081871]
 curve = SubResource("Curve2D_mxy6h")
 
+[node name="PathFollow2D" type="PathFollow2D" parent="PathUD" unique_id=447974898]
+position = Vector2(318, 2)
+rotation = 1.3961241
+
 [node name="PathUR" type="Path2D" parent="." unique_id=1413589671]
 curve = SubResource("Curve2D_1hc8y")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="PathUR" unique_id=2079570231]
+position = Vector2(339, 7)
+rotation = 1.9147655
 
 [node name="PathLR" type="Path2D" parent="." unique_id=1247166197]
 curve = SubResource("Curve2D_o571i")
 
+[node name="PathFollow2D" type="PathFollow2D" parent="PathLR" unique_id=428308487]
+position = Vector2(7.868042, 345.99228)
+
 [node name="PathLD" type="Path2D" parent="." unique_id=1347636165]
 curve = SubResource("Curve2D_1o3v6")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="PathLD" unique_id=2116798675]
+position = Vector2(13, 371)
+rotation = 0.015036461
+
+[node name="LevelCompletePanel" type="Control" parent="." unique_id=1558285088]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 209.0
+offset_top = 145.0
+offset_right = 249.0
+offset_bottom = 185.0
+
+[node name="Label" type="Label" parent="LevelCompletePanel" unique_id=806478952]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Level Complete"
+
+[node name="Button" type="Button" parent="LevelCompletePanel" unique_id=201150465]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 26.0
+offset_right = 78.0
+offset_bottom = 57.0
+text = "Next"
+
+[connection signal="pressed" from="LevelCompletePanel/Button" to="." method="_on_button_pressed"]

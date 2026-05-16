@@ -3,10 +3,10 @@ extends Node2D
 # =====================================================
 # LEVEL CONFIG
 # =====================================================
-var level_id := 1
+var level_id := 2
 var current_wave := 0
 var total_waves := 3
-var is_wave_transitioning := false   # ← NEW: Prevents overlapping waves
+var is_wave_transitioning := false
 
 # =====================================================
 # CHARACTER SYSTEM
@@ -21,31 +21,47 @@ var is_placing: bool = false
 var enemies_alive := 0
 var level_finished := false
 
-# Wave Configuration
+# Wave Configuration (20 enemies per wave)
 var wave_configs = [
-	{ "path": 1, "count": 10, "enemy_scene": preload("res://Enemies/bottle_trash.tscn") },
-	{ "path": 2, "count": 10, "enemy_scene": preload("res://Enemies/trashbag_trash.tscn") },
-	{ "path": "both", "count": 10, 
-	  "enemy_scene1": preload("res://Enemies/bottle_trash.tscn"),
-	  "enemy_scene2": preload("res://Enemies/trash_1.tscn") }
+	{ "count": 20, "enemy_scene": preload("res://Enemies/bottle_trash.tscn") },
+	{ "count": 20, "enemy_scene": preload("res://Enemies/trashbag_trash.tscn") },
+	{ "count": 20, "enemy_scene": preload("res://Enemies/trash_1.tscn") }
 ]
 
 # =====================================================
 # REFERENCES
 # =====================================================
 @onready var level_hud = $LevelHUD
-@onready var path1: Path2D = $Path2D
-@onready var path2: Path2D = $Path2D2
 @onready var level_complete_ui = $LevelCompletePanel
+
+# Collect all Path2D nodes automatically
+var all_paths: Array[Path2D] = []
 
 # =====================================================
 # READY
 # =====================================================
 func _ready() -> void:
-	print("LEVEL STARTED: Area 1-1")
+	print("LEVEL STARTED: Area 1-2 (Level ", level_id, ")")
+	
+	# Auto-detect all Path2D nodes in the scene
+	_find_all_paths()
+	
 	level_hud.character_chosen.connect(_on_character_chosen)
 	level_hud.setup_with_selected_characters(SelectedCharactersManager.selected_characters)
+	
 	start_next_wave()
+
+
+func _find_all_paths() -> void:
+	all_paths.clear()
+	for child in get_children():
+		if child is Path2D:
+			all_paths.append(child)
+	
+	if all_paths.is_empty():
+		push_error("No Path2D found in the level!")
+	else:
+		print("Found ", all_paths.size(), " paths for enemy spawning.")
 
 
 # =====================================================
@@ -60,33 +76,29 @@ func start_next_wave() -> void:
 		return
 	
 	is_wave_transitioning = true
-	print("🚀 Starting Wave ", current_wave, "/", total_waves)
+	print("🚀 Starting Wave ", current_wave, "/", total_waves, " - 20 enemies")
 	
 	var config = wave_configs[current_wave - 1]
-	
-	if config.path is String and config.path == "both":
-		spawn_wave_on_path(path1, config.count, config.enemy_scene1)
-		spawn_wave_on_path(path2, config.count, config.enemy_scene2)
-	else:
-		var selected_path = path1 if config.path == 1 else path2
-		spawn_wave_on_path(selected_path, config.count, config.enemy_scene)
+	spawn_wave(config.count, config.enemy_scene)
 
 
-func spawn_wave_on_path(path2d: Path2D, count: int, enemy_scene: PackedScene) -> void:
+func spawn_wave(count: int, enemy_scene: PackedScene) -> void:
 	for i in range(count):
-		await get_tree().create_timer(0.8).timeout
-		spawn_single_enemy(path2d, enemy_scene)
+		await get_tree().create_timer(0.6).timeout  # Faster spawn rate
+		spawn_single_enemy(enemy_scene)
 	
-	# Wave spawning finished
 	is_wave_transitioning = false
 
 
-func spawn_single_enemy(path2d: Path2D, enemy_scene: PackedScene) -> void:
-	if not enemy_scene:
+func spawn_single_enemy(enemy_scene: PackedScene) -> void:
+	if not enemy_scene or all_paths.is_empty():
 		return
 	
+	# Pick random path
+	var random_path = all_paths[randi() % all_paths.size()]
+	
 	var path_follow = PathFollow2D.new()
-	path2d.add_child(path_follow)
+	random_path.add_child(path_follow)
 	path_follow.loop = false
 	path_follow.rotates = false
 	
@@ -110,18 +122,18 @@ func _on_enemy_died(path_follow: PathFollow2D) -> void:
 
 
 # =====================================================
-# WIN CONDITION - IMPROVED
+# WIN CONDITION
 # =====================================================
 func check_win_condition() -> void:
 	if level_finished or is_wave_transitioning:
 		return
 	
 	if enemies_alive <= 0 and current_wave >= total_waves:
-		print("🎉 ALL WAVES CLEARED - LEVEL COMPLETE!")
+		print("🎉 LEVEL COMPLETE! All waves cleared!")
 		show_level_complete()
 	elif enemies_alive <= 0 and current_wave < total_waves:
-		print("Wave ", current_wave, " cleared. Starting next wave...")
-		await get_tree().create_timer(2.0).timeout
+		print("Wave ", current_wave, " cleared → Next wave soon...")
+		await get_tree().create_timer(2.2).timeout
 		start_next_wave()
 
 
@@ -131,7 +143,7 @@ func show_level_complete():
 
 
 # =====================================================
-# CHARACTER PLACEMENT (unchanged)
+# CHARACTER PLACEMENT
 # =====================================================
 func _unhandled_input(event):
 	if event is InputEventMouseButton and event.pressed:
