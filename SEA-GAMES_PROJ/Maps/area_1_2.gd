@@ -9,6 +9,12 @@ var total_waves := 3
 var is_wave_transitioning := false
 
 # =====================================================
+# PLAYER HP SYSTEM (FIXED ADDITION)
+# =====================================================
+var max_hp: int = 100
+var current_hp: int = 100
+
+# =====================================================
 # CHARACTER SYSTEM
 # =====================================================
 var character_scene = preload("res://UI/Character.tscn")
@@ -34,6 +40,9 @@ var wave_configs = [
 @onready var level_hud = $LevelHUD
 @onready var level_complete_ui = $LevelCompletePanel
 
+@onready var hp_label: Label = $LevelHUD/HPLabel
+@onready var game_over_ui = $LevelFailPanel
+
 # Collect all Path2D nodes automatically
 var all_paths: Array[Path2D] = []
 
@@ -43,7 +52,9 @@ var all_paths: Array[Path2D] = []
 func _ready() -> void:
 	print("LEVEL STARTED: Area 1-2 (Level ", level_id, ")")
 	
-	# Auto-detect all Path2D nodes in the scene
+	current_hp = max_hp
+	update_hp_ui()
+	
 	_find_all_paths()
 	
 	level_hud.character_chosen.connect(_on_character_chosen)
@@ -52,6 +63,38 @@ func _ready() -> void:
 	start_next_wave()
 
 
+# =====================================================
+# HP SYSTEM
+# =====================================================
+func update_hp_ui() -> void:
+	if hp_label:
+		hp_label.text = "HP: " + str(current_hp) + "/" + str(max_hp)
+
+
+func take_damage(amount: int = 10) -> void:
+	current_hp -= amount
+	update_hp_ui()
+	print("Player took damage! HP left:", current_hp)
+
+	if current_hp <= 0:
+		game_over()
+
+
+func game_over() -> void:
+	print("💀 GAME OVER - Player HP reached 0")
+
+	is_wave_transitioning = true
+	level_finished = true
+
+	if game_over_ui:
+		game_over_ui.visible = true
+	else:
+		push_error("LevelFailPanel not found in scene!")
+
+
+# =====================================================
+# PATH DETECTION
+# =====================================================
 func _find_all_paths() -> void:
 	all_paths.clear()
 	for child in get_children():
@@ -68,70 +111,77 @@ func _find_all_paths() -> void:
 # WAVE SYSTEM
 # =====================================================
 func start_next_wave() -> void:
-	if is_wave_transitioning:
+	if is_wave_transitioning or current_hp <= 0:
 		return
-	
+
 	current_wave += 1
 	if current_wave > total_waves:
 		return
-	
+
 	is_wave_transitioning = true
 	print("🚀 Starting Wave ", current_wave, "/", total_waves, " - 20 enemies")
-	
+
 	var config = wave_configs[current_wave - 1]
 	spawn_wave(config.count, config.enemy_scene)
 
 
 func spawn_wave(count: int, enemy_scene: PackedScene) -> void:
 	for i in range(count):
-		await get_tree().create_timer(0.6).timeout  # Faster spawn rate
+		await get_tree().create_timer(0.6).timeout
 		spawn_single_enemy(enemy_scene)
-	
+
 	is_wave_transitioning = false
 
 
 func spawn_single_enemy(enemy_scene: PackedScene) -> void:
 	if not enemy_scene or all_paths.is_empty():
 		return
-	
-	# Pick random path
+
 	var random_path = all_paths[randi() % all_paths.size()]
-	
+
 	var path_follow = PathFollow2D.new()
 	random_path.add_child(path_follow)
 	path_follow.loop = false
 	path_follow.rotates = false
-	
+
 	var enemy = enemy_scene.instantiate()
 	add_child(enemy)
-	
+
 	enemy.setup(path_follow)
 	enemies_alive += 1
-	
+
 	if enemy.has_signal("died"):
 		enemy.died.connect(_on_enemy_died.bind(path_follow))
+
+	if enemy.has_signal("reached_end"):
+		enemy.reached_end.connect(_on_enemy_reached_end)
 
 
 func _on_enemy_died(path_follow: PathFollow2D) -> void:
 	enemies_alive -= 1
+
 	if path_follow and is_instance_valid(path_follow):
 		path_follow.queue_free()
-	
-	print("Enemy died. Remaining: ", enemies_alive)
+
 	check_win_condition()
+
+
+func _on_enemy_reached_end() -> void:
+	take_damage(10)
 
 
 # =====================================================
 # WIN CONDITION
 # =====================================================
 func check_win_condition() -> void:
-	if level_finished or is_wave_transitioning:
+	if level_finished or is_wave_transitioning or current_hp <= 0:
 		return
-	
+
 	if enemies_alive <= 0 and current_wave >= total_waves:
 		print("🎉 LEVEL COMPLETE! All waves cleared!")
 		show_level_complete()
-	elif enemies_alive <= 0 and current_wave < total_waves:
+
+	elif enemies_alive <= 0:
 		print("Wave ", current_wave, " cleared → Next wave soon...")
 		await get_tree().create_timer(2.2).timeout
 		start_next_wave()
@@ -154,10 +204,13 @@ func _unhandled_input(event):
 
 
 func try_spawn_character(pos: Vector2) -> void:
-	if selected_character == null: return
+	if selected_character == null:
+		return
+
 	if not CurrencyManager.spend_currency(selected_character.cost):
 		print("Not enough currency!")
 		return
+
 	spawn_character(pos, selected_character)
 	cancel_placement()
 
@@ -181,9 +234,12 @@ func cancel_placement() -> void:
 	print("Placement cancelled")
 
 
+# =====================================================
+# BUTTONS
+# =====================================================
 func _on_button_pressed() -> void:
 	GameManager.level_completed(level_id)
 
 
 func retry_pressed() -> void:
-	get_tree().change_scene_to_file("res://Maps/area_1_2.tscn")
+	get_tree().change_scene_to_file("res://UI/CharacterSelect.tscn")
