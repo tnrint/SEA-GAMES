@@ -22,6 +22,8 @@ var level_scenes := [
 func clear_selection():
 	selected_characters.clear()
 
+func start_level(level_scene_path: String):
+	get_tree().change_scene_to_file(level_scene_path)
 
 # =====================================================
 # LEVEL RESOLUTION
@@ -39,10 +41,6 @@ func start_current_level():
 
 	print("Starting level:", level)
 
-	get_tree().change_scene_to_file(get_level_scene_path(level))
-
-
-func start_level(level: int):
 	get_tree().change_scene_to_file(get_level_scene_path(level))
 
 

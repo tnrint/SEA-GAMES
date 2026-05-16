@@ -6,7 +6,7 @@ signal currency_changed(new_amount: int)
 var currency: int = 200  # matches your starting points in gc.gd
 
 func add_currency_from_damage(damage_dealt: int) -> void:
-	var earned = int(damage_dealt)  # 10% of damage = currency earned
+	var earned = int(damage_dealt * 0.2)  # 10% of damage = currency earned
 	if earned > 0:
 		currency += earned
 		emit_signal("currency_changed", currency)

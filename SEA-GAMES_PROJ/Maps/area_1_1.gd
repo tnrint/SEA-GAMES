@@ -1,10 +1,5 @@
 extends Node2D
 
-<<<<<<< HEAD
-var enemy_scene = preload("res://Enemies/trash_1.tscn")
-var character_scene = preload("res://UI/Character.tscn")
-var available_characters: Array[CharacterData] = []
-=======
 # =====================================================
 # LEVEL CONFIG
 # =====================================================
@@ -14,7 +9,6 @@ var level_id := 1
 # CHARACTER SYSTEM
 # =====================================================
 var character_scene = preload("res://UI/Character.tscn")
->>>>>>> e03940100659d68b43edbdd97e3e9ebb5206e01c
 var selected_character: CharacterData = null
 var is_placing: bool = false  # 👈 add this
 
@@ -35,12 +29,9 @@ var level_finished := false
 # READY
 # =====================================================
 func _ready() -> void:
-<<<<<<< HEAD
-=======
 	print("LEVEL STARTED: ", level_id)
 
 	# HUD setup
->>>>>>> e03940100659d68b43edbdd97e3e9ebb5206e01c
 	level_hud.character_chosen.connect(_on_character_chosen)
 	level_hud.setup_with_selected_characters(
 		SelectedCharactersManager.selected_characters
@@ -88,10 +79,6 @@ func cancel_placement() -> void:
 	is_placing = false  # 👈 exit placing mode
 	print("Placement cancelled")
 
-func _on_character_chosen(char_data: CharacterData) -> void:
-	selected_character = char_data
-	print("Now placing:", char_data.character_name)
-
 
 # =====================================================
 # ENEMY SYSTEM
@@ -136,4 +123,3 @@ func show_level_complete():
 
 func _on_button_pressed() -> void:
 	GameManager.level_completed(level_id)
->>>>>>> e03940100659d68b43edbdd97e3e9ebb5206e01c
