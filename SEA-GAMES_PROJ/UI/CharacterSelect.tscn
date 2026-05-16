@@ -42,10 +42,10 @@ text = "Ready!"
 
 [node name="SelectedBar" type="HBoxContainer" parent="." unique_id=212563283]
 layout_mode = 0
-offset_left = 137.0
-offset_top = 114.0
-offset_right = 177.0
-offset_bottom = 154.0
+offset_left = 119.0
+offset_top = 120.0
+offset_right = 159.0
+offset_bottom = 160.0
 
 [node name="CardGrid" type="GridContainer" parent="." unique_id=1650323621]
 layout_mode = 0
@@ -53,3 +53,4 @@ offset_left = 136.0
 offset_top = 219.0
 offset_right = 176.0
 offset_bottom = 259.0
+columns = 4

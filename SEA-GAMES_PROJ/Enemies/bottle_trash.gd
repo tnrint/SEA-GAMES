@@ -1,10 +1,11 @@
 extends Area2D
 
+signal died
 @export var max_hp: int = 60
 var current_hp: int
 var speed_multiplier: float = 1.0 # Added for slow effect
 
-var path_follow = PathFollow2D
+var path_follow: PathFollow2D = null
 
 func setup(new_path_follow: PathFollow2D):
 	path_follow = new_path_follow
@@ -12,13 +13,13 @@ func setup(new_path_follow: PathFollow2D):
 func _ready():
 	current_hp = max_hp
 
-func _process(delta: float) -> void:
-	# Added speed_multiplier to the movement calculation
-	path_follow.progress += (100 * speed_multiplier) * delta
-	
-	if path_follow.progress_ratio >= 0.99:
-		print("Bottle reached end → damage player")
-		queue_free()
+func _process(delta):
+	if path_follow == null:
+		return
+
+	path_follow.progress += 100 * speed_multiplier * delta
+
+	global_position = path_follow.global_position
 
 func apply_slow(multiplier: float, duration: float):
 	speed_multiplier = multiplier
@@ -35,4 +36,5 @@ func take_damage(amount: int):
 
 func die():
 	print("Bottle destroyed")
+	died.emit()   # ⭐ tell the level this enemy is dead
 	queue_free()
