@@ -162,5 +162,5 @@ offset_bottom = 200.0
 theme_override_fonts/font = ExtResource("4_6ugle")
 text = "Retry"
 
-[connection signal="pressed" from="LevelCompletePanel/Button" to="." method="retry_pressed"]
+[connection signal="pressed" from="LevelCompletePanel/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="LevelFailPanel/Button" to="." method="retry_pressed"]

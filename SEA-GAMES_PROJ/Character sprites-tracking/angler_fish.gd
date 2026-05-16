@@ -4,6 +4,13 @@ extends Node2D
 @export var speed_multiplier: float = 1.5 
 @export var tower_name: String = "Angler"
 
+@export_group("Range Circle Display")
+# Adjust this value in the inspector to match the visual radius size of your BuffRange!
+@export var visual_circle_radius: float = 75.0
+# Warm light yellow profile: Red 1.0, Green 0.9, Blue 0.4, Alpha/Opacity 0.25 (25% visible)
+@export var circle_color: Color = Color(1.0, 0.9, 0.4, 0.25)
+@export var circle_line_width: float = 3.0
+
 @onready var buff_range_area = $BuffRange
 @onready var anim = $AnimatedSprite2D
 @onready var radius_visual = $RadiusVisual # The new aura node
@@ -20,6 +27,25 @@ func _ready():
 	if radius_visual:
 		radius_visual.play("default") # Keep the radius glowing
 		radius_visual.show()
+		
+	# Force Godot to call the _draw() loop to display our light ring right away
+	queue_redraw()
+
+# =====================================================
+# WARM LIGHT CIRCLE RENDERING ENGINE
+# =====================================================
+func _draw() -> void:
+	# Draws a clean, smooth vector circle border resembling a light field aura
+	draw_arc(
+		Vector2.ZERO,           # Center point relative to Angler's position
+		visual_circle_radius,   # Size of the buff area display
+		0.0,                    # Start angle
+		TAU,                    # Full circle angle sweep (360 degrees in radians)
+		64,                     # Smoothness detail steps
+		circle_color,           # Warm light yellow color settings
+		circle_line_width,      # Line thickness in pixels
+		true                    # Smooth out pixel edges
+	)
 
 func _on_area_entered(area: Area2D):
 	var fish = area.get_parent()
