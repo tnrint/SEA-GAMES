@@ -11,7 +11,11 @@ var all_characters: Array[CharacterData] = [
 	CharacterData.new("Ice Fish",   125, preload("res://UI/icefish_icon.tres"),   "res://character sprites-tracking/ice_fishy.tscn"),
 	CharacterData.new("Sword Fish", 75,  preload("res://UI/swordfish_icon.tres"),  "res://character sprites-tracking/Swordfish.tscn"),
 	CharacterData.new("Jellyfish",  200, preload("res://UI/jellyfish_icon.tres"), "res://Character sprites-tracking/jellyfish.tscn"),
-	CharacterData.new("Saw Fish",   150, preload("res://UI/sawfish_icon.tres"),   "res://Character sprites-tracking/sawshark.tscn"),
+	CharacterData.new("Saw Shark",   150, preload("res://UI/sawfish_icon.tres"),   "res://Character sprites-tracking/sawshark.tscn"),
+	CharacterData.new("Angler Fish",   175, preload("res://UI/anglerfish_icon.tres"), "res://Character sprites-tracking/angler_fish.tscn"  ),
+	CharacterData.new("Shotgun Fish",   150, preload("res://UI/shotgunfish_icon.tres"), "res://Character sprites-tracking/red_fish.tscn"  ),
+	CharacterData.new("Shark",   200, preload("res://UI/shark_icon.tres"), "res://Character sprites-tracking/Sharky.tscn"  ),
+	CharacterData.new("Squid",   150, preload("res://UI/squid_icon.tres"), "res://Character sprites-tracking/squid.tscn"  ),
 ]
 
 func _ready() -> void:
@@ -48,7 +52,5 @@ func _on_StartButton_pressed() -> void:
 		print("Please select at least one character!")
 		return
 	
-	# Pass the selected characters (with scene paths) to the game
 	GameManager.selected_characters = SelectedCharactersManager.selected_characters.duplicate()
-	
-	get_tree().change_scene_to_file("res://Maps/area_1_1.tscn")
+	GameManager.start_current_level()

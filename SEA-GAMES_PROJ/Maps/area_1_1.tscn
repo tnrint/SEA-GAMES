@@ -3,10 +3,6 @@
 [ext_resource type="TileSet" uid="uid://b4233cuotsuf8" path="res://Tilemaps/TilseSet1.tres" id="1_fj6oa"]
 [ext_resource type="Script" uid="uid://vbdccqvsbu8o" path="res://Maps/area_1_1.gd" id="1_tm7g4"]
 [ext_resource type="PackedScene" uid="uid://dwruxkwn6takp" path="res://UI/LevelHUD.tscn" id="2_tdtuw"]
-[ext_resource type="Script" uid="uid://d0r1wmgeopvtm" path="res://Maps/enemy_spawner.gd" id="5_k7al6"]
-[ext_resource type="PackedScene" uid="uid://b6u81u1lok7u8" path="res://Enemies/trash_1.tscn" id="6_nugod"]
-[ext_resource type="PackedScene" uid="uid://3oy24w6arr74" path="res://Enemies/bottle_trash.tscn" id="7_o3cye"]
-[ext_resource type="PackedScene" uid="uid://cfhq4j3knotv" path="res://Enemies/trashbag_trash.tscn" id="8_w637m"]
 
 [sub_resource type="Curve2D" id="Curve2D_fj6oa"]
 _data = {
@@ -54,12 +50,34 @@ tile_set = ExtResource("1_fj6oa")
 [node name="Path2D" type="Path2D" parent="." unique_id=925745643]
 curve = SubResource("Curve2D_fj6oa")
 
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=1439706338]
+position = Vector2(376, -7)
+rotation = 1.5638999
+
 [node name="Path2D2" type="Path2D" parent="." unique_id=679897224]
 curve = SubResource("Curve2D_psn0c")
 
-[node name="EnemySpawner" type="Node2D" parent="." unique_id=31327674]
-position = Vector2(32, 57)
-script = ExtResource("5_k7al6")
-bottle_scene = ExtResource("7_o3cye")
-trash_scene = ExtResource("6_nugod")
-trashbag_scene = ExtResource("8_w637m")
+[node name="LevelCompletePanel" type="Control" parent="." unique_id=824054521]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 209.0
+offset_top = 145.0
+offset_right = 249.0
+offset_bottom = 185.0
+
+[node name="Label" type="Label" parent="LevelCompletePanel" unique_id=1151365776]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Level Complete"
+
+[node name="Button" type="Button" parent="LevelCompletePanel" unique_id=775612580]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 26.0
+offset_right = 78.0
+offset_bottom = 57.0
+text = "Next"
+
+[connection signal="pressed" from="LevelCompletePanel/Button" to="." method="_on_button_pressed"]
