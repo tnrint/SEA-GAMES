@@ -32,6 +32,7 @@ func apply_slow(multiplier: float, duration: float):
 	speed_multiplier = 1.0
 
 func take_damage(amount: int):
+	SFXManager.play("enemy_hit")
 	current_hp -= amount
 	if current_tier == 2 and current_hp <= TIER_1_HP:
 		transform_to_tier(1)

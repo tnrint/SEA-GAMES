@@ -28,6 +28,7 @@ func apply_slow(multiplier: float, duration: float):
 func take_damage(amount: int):
 	current_hp -= amount
 	print("Trash HP:", current_hp)
+	SFXManager.play("enemy_hit")
 	
 	if current_hp <= 0:
 		die()

@@ -49,7 +49,7 @@ func _on_timer_timeout():
 
 func fire_projectile(target_node):
 	if projectile_scene == null: return
-	
+	SFXManager.play("shark_shoot")
 	if sprite.sprite_frames.has_animation("attack"):
 		sprite.play("attack")
 		# Using a simple timer to reset animation instead of complex signals

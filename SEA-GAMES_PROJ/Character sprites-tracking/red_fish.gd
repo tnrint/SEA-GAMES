@@ -50,7 +50,7 @@ func _process(_delta):
 
 func shoot():
 	can_shoot = false
-	
+	SFXManager.play("redfish_shotgun")
 	if sprite.sprite_frames.has_animation("Attack"):
 		sprite.play("Attack")
 

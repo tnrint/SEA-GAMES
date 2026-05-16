@@ -38,6 +38,7 @@ func get_closest_enemy() -> Area2D:
 
 func shoot(target: Area2D):
 	can_shoot = false
+	SFXManager.play("ice_fish_shoot")
 
 	# Spawn bubble at tower position, pass target + damage
 	var bubble = bubble_scene.instantiate()

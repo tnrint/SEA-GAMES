@@ -46,6 +46,7 @@ func get_closest_enemy() -> Area2D:
 
 func shoot(target: Area2D):
 	can_shoot = false
+	SFXManager.play("fish_shoot")
 
 	var bubble = bubble_scene.instantiate()
 	get_tree().current_scene.add_child(bubble)

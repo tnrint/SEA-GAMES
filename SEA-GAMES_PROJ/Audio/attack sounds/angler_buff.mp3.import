@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://xg5g66dpkl00"
+path="res://.godot/imported/angler_buff.mp3-68c1a0296d334102cbc59b69b1c84138.mp3str"
+
+[deps]
+
+source_file="res://Audio/attack sounds/angler_buff.mp3"
+dest_files=["res://.godot/imported/angler_buff.mp3-68c1a0296d334102cbc59b69b1c84138.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

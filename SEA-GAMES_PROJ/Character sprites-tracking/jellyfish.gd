@@ -81,6 +81,7 @@ func _on_pulse_timeout():
 func execute_shock():
 	can_shock = false
 	is_electrocuting = true
+	SFXManager.play("jelly_fixh_attack")
 	
 	if sprite.sprite_frames.has_animation("attack"):
 		sprite.play("attack")

@@ -59,7 +59,7 @@ func shoot():
 	
 	# Play Attack animation
 	sprite.play("attack")
-
+	SFXManager.play("squid")
 	var b = bullet_scene.instantiate()
 	get_tree().current_scene.add_child(b)
 	b.global_position = global_position

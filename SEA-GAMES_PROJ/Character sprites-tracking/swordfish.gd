@@ -36,7 +36,7 @@ func _physics_process(delta):
 				sprite.flip_v = abs(rotation_degrees) > 90
 				
 				var collision = move_and_collide(velocity * delta)
-				
+				SFXManager.play("sword_fish_attack")
 				if global_position.distance_to(target_node.global_position) < 25:
 					hit_trash()
 			else:

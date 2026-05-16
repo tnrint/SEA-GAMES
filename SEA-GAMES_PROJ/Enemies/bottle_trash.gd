@@ -26,6 +26,7 @@ func apply_slow(multiplier: float, duration: float):
 	speed_multiplier = 1.0 # Reset to normal speed
 
 func take_damage(amount: int):
+	SFXManager.play("enemy_hit")
 	current_hp -= amount
 	print("Bottle HP:", current_hp)
 	

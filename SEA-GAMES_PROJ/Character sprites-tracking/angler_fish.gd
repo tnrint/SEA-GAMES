@@ -23,6 +23,7 @@ func _ready():
 func _on_area_entered(area: Area2D):
 	var fish = area.get_parent()
 	if fish.has_method("add_buff"):
+		SFXManager.play("angler_buff")
 		# Terminal Output for confirmation
 		print(">>> [BUFF ACTIVATED] Target: ", fish.name, " | Speed x", speed_multiplier)
 		
